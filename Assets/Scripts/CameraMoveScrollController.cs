@@ -21,7 +21,7 @@ public class CameraMoveScrollController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,11 +34,16 @@ public class CameraMoveScrollController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
 
         }
-        if (normalizedT > 0.9) { 
-        transform.position = Vector3.SmoothDamp(transform.position, target1.position, ref refPos, movementTime);
-        //Interpolate Rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, target1.rotation, rotationSpeed * Time.deltaTime);
-            if(GetComponent<CameraPanController>() != null)
+       
+
+        if (normalizedT > 0.9)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, target1.rotation, rotationSpeed * Time.deltaTime);
+
+            transform.position = Vector3.SmoothDamp(transform.position, target1.position, ref refPos, movementTime);
+            //Interpolate Rotation
+
+            if (GetComponent<CameraPanController>() != null)
             {
                 GetComponent<CameraPanController>().enabled = false;
             }
@@ -65,10 +70,11 @@ public class CameraMoveScrollController : MonoBehaviour
 
     public void SetMoveValues()
     {
-        normalizedT = 1-  scrollcanvas.verticalNormalizedPosition;
+        normalizedT = 1 - scrollcanvas.verticalNormalizedPosition;
         Debug.Log(forwardScroll);
-        if (forwardScroll) { 
-        transform.position = Vector3.Lerp(transform.position, target1.position, normalizedT/100);
+        if (forwardScroll)
+        {
+            transform.position = Vector3.Lerp(transform.position, target1.position, normalizedT / 100);
         }
         if (!forwardScroll)
         {
@@ -76,5 +82,5 @@ public class CameraMoveScrollController : MonoBehaviour
         }
 
     }
-    
+
 }
