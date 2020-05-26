@@ -1,19 +1,14 @@
 ﻿using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraPanController : MonoBehaviour
 {
-    public Camera cameraDrone;
-    public static bool doMovement = true;
+  
 
     public float panSpeed = 30f;
     public float panBorderThickness;
 
-    public float scrollSpeed = 5f;
-    public float minZoom;
-    public float maxZoom;
-
-    public float camSize;
-
+   
+ 
     private void Start()
     {
         
@@ -21,11 +16,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            doMovement = !doMovement;
-
-        if (!doMovement)
-            return;
+       
 
         if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
@@ -40,21 +31,15 @@ public class CameraController : MonoBehaviour
         if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
 
-            transform.Translate(Vector3.left * panSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * panSpeed * Time.deltaTime);
         }
         if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
         {
 
-            transform.Translate(Vector3.right * panSpeed * Time.deltaTime);
+            transform.Translate(Vector3.left * panSpeed * Time.deltaTime);
         }
 
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-
-        camSize += scroll * scrollSpeed;
-
-        camSize = Mathf.Clamp(camSize, minZoom, maxZoom);
-
-
+       
         Vector3 pos = transform.position;
 
         transform.position = pos;

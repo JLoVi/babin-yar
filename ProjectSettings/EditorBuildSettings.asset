@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scroll-update.unity
     guid: 92708961b2cbe42d9888165277002ba5
+  - enabled: 1
+    path: Assets/Scenes/camera-update.unity
+    guid: dff3a6efb35ba4a67a9ef2695a0932d7
   m_configObjects: {}

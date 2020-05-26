@@ -3,30 +3,35 @@ using UnityEngine;
 
 public class CameraMouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100.0f;
-    public float clampAngle = 80.0f;
 
-    private float rotY = 0.0f; // rotation around the up/y axis
-    private float rotX = 0.0f; // rotation around the right/x axis
+    public Transform target;
+    public float speed;
+    private bool isLeft = true;
 
     void Start()
     {
-        Vector3 rot = transform.localRotation.eulerAngles;
-        rotY = rot.y;
-        rotX = rot.x;
+      
     }
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = -Input.GetAxis("Mouse Y");
+        transform.LookAt(target);
 
-        rotY += mouseX * mouseSensitivity * Time.deltaTime;
-        rotX += mouseY * mouseSensitivity * Time.deltaTime;
+        if (isLeft)
+            transform.position += transform.right * speed * Time.deltaTime;
+        else
+            transform.position -= transform.right * speed * Time.deltaTime;
 
-        rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+        if (Input.GetMouseButton(0))
+        {
+            var fT = Input.GetAxis("Mouse X");
+            if (fT > 0.01)
+                isLeft = false;
+            else if (fT < -0.01)
+                isLeft = true;
 
-        Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
-        transform.rotation = localRotation;
+            transform.LookAt(target);
+            transform.RotateAround(target.position, Vector3.up, Input.GetAxis("Mouse X") * speed);
+        }
     }
 }
