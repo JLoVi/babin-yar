@@ -38,11 +38,28 @@ public class CameraMoveScrollController : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, target1.position, ref refPos, movementTime);
         //Interpolate Rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, target1.rotation, rotationSpeed * Time.deltaTime);
+            if(GetComponent<CameraPanController>() != null)
+            {
+                GetComponent<CameraPanController>().enabled = false;
+            }
+
+            if (GetComponent<CameraOrbitController>() != null)
+            {
+                GetComponent<CameraOrbitController>().enabled = false;
+            }
         }
         else
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
+            if (GetComponent<CameraPanController>() != null)
+            {
+                GetComponent<CameraPanController>().enabled = true;
+            }
 
+            if (GetComponent<CameraOrbitController>() != null)
+            {
+                GetComponent<CameraOrbitController>().enabled = true;
+            }
         }
     }
 
