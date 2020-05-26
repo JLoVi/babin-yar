@@ -34,10 +34,12 @@ public class ScrollController : MonoBehaviour
         if (x > 0.2 &&  x < 0.5f)
         {
             input = 1;
+            CameraMoveScrollController.forwardScroll = true;
         }
         if (x < - 0.2 && x > -0.5f)
         {
             input = -1;
+            CameraMoveScrollController.forwardScroll = false;
         }
         if (x == 0)
         {

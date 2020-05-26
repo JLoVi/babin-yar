@@ -36,7 +36,10 @@ public class CameraOrbitController : MonoBehaviour
                 _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
                 _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
 
-                _LocalRotation.y = Mathf.Clamp(_LocalRotation.y, -20f, 20f);
+                _LocalRotation.y = Mathf.Clamp(_LocalRotation.y, -20f, 40f);
+                _LocalRotation.x = Mathf.Clamp(_LocalRotation.x, -10, 10);
+
+
 
 
              /*   if(Input.GetAxis("Mouse ScrollWheel") != 0f)
