@@ -10,6 +10,9 @@ public class CameraMoveScrollController : MonoBehaviour
     public ScrollRect scrollcanvas;
     public Transform target1;
     public Transform target2;
+   // public Transform startCam;
+    public Transform endCam;
+
     public static bool forwardScroll;
 
     public float movementTime = 1;
@@ -38,9 +41,9 @@ public class CameraMoveScrollController : MonoBehaviour
 
         if (normalizedT > 0.9)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, target1.rotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, endCam.rotation, rotationSpeed * Time.deltaTime);
 
-            transform.position = Vector3.SmoothDamp(transform.position, target1.position, ref refPos, movementTime);
+            transform.position = Vector3.SmoothDamp(transform.position, endCam.position, ref refPos, movementTime);
             //Interpolate Rotation
 
             if (GetComponent<CameraPanController>() != null)
