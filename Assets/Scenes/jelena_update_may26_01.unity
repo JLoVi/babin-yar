@@ -514,6 +514,8 @@ MonoBehaviour:
   transitionStep: 0
   startPos: 0
   canScroll: 0
+  input: 0
+  previousValue: 0
 --- !u!1 &399419650
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,7 +779,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 2361cb50f837e4aa1a3e7dd45f6a24c7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2361cb50f837e4aa1a3e7dd45f6a24c7,
         type: 3}
@@ -1240,7 +1242,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9061f14487ae041c18137cdac021604d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9061f14487ae041c18137cdac021604d,
         type: 3}
@@ -1574,7 +1576,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: a3e81f952c7174797928e7498b2e432b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a3e81f952c7174797928e7498b2e432b,
         type: 3}
@@ -1595,6 +1597,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: piles of cloth
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a3e81f952c7174797928e7498b2e432b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3e81f952c7174797928e7498b2e432b, type: 3}
@@ -3081,8 +3088,8 @@ MonoBehaviour:
   m_Content: {fileID: 1214021240}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
-  m_Elasticity: 0.1
+  m_MovementType: 2
+  m_Elasticity: 0.01
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 0
@@ -3642,7 +3649,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5f86dbae389dd461ab11a181e52cb2dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5f86dbae389dd461ab11a181e52cb2dd,
         type: 3}

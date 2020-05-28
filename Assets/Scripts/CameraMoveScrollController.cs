@@ -74,7 +74,7 @@ public class CameraMoveScrollController : MonoBehaviour
     public void SetMoveValues()
     {
         normalizedT = 1 - scrollcanvas.verticalNormalizedPosition;
-        Debug.Log(forwardScroll);
+//        Debug.Log(forwardScroll);
         if (forwardScroll)
         {
             transform.position = Vector3.Lerp(transform.position, target1.position, normalizedT / 100);
