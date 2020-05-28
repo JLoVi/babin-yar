@@ -16,7 +16,7 @@ public class ScrollController : MonoBehaviour
     public int input;
 
     public int previousValue;
-
+    public AnimationCurve MoveCurve;
 
 
     void Start()
@@ -144,13 +144,13 @@ public class ScrollController : MonoBehaviour
 
         if (input == 1)
         {
-            scrollTime = 0.5f;
+            scrollTime = 0.7f;
             targetPos = startPos - 0.07f;
             // targetPos = startPos + transitionStep / 2;
         }
         else
         {
-            scrollTime = 0.8f;
+            scrollTime = 1f;
             targetPos = 1 - (transitionStep * currentPage);
         }
        
@@ -191,13 +191,13 @@ public class ScrollController : MonoBehaviour
 
         if (input == -1)
         {
-            scrollTime = 0.5f;
+            scrollTime = 0.7f;
             targetPos = startPos + 0.07f;
             // targetPos = startPos - transitionStep / 2;
         }
         else
         {
-            scrollTime = 0.8f;
+            scrollTime = 1f;
             targetPos = startPos + transitionStep;
         }
         
@@ -211,7 +211,7 @@ public class ScrollController : MonoBehaviour
 
         if (currentPage == 1)
         {
-            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, 1));
+            StartCoroutine(ScrollToNormalisedPosition( scrollTime, startPos, 1));
         }
 
         if (currentPage == 5)
@@ -233,7 +233,7 @@ public class ScrollController : MonoBehaviour
 
         for (float t = 0.01f; t < scrollTime; t += Time.deltaTime)
         {
-            m_ScrollRect.verticalNormalizedPosition = Mathf.Lerp(currentPos, targetPos, Mathf.Min(1, t / scrollTime));
+            m_ScrollRect.verticalNormalizedPosition = Mathf.Lerp(currentPos, targetPos,MoveCurve.Evaluate( Mathf.Min(1, t / scrollTime)));
             yield return null;
 
         }
@@ -243,7 +243,7 @@ public class ScrollController : MonoBehaviour
     public IEnumerator SetCanScroll()
     {
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.9f);
         input = 0;
         canScroll = true;
         // previousValue = 0;
@@ -252,7 +252,7 @@ public class ScrollController : MonoBehaviour
 
     public IEnumerator CheckIfZeroAfterTime()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1.5f);
         if (input == 0)
         {
             previousValue = 0;
@@ -265,7 +265,7 @@ public class ScrollController : MonoBehaviour
 
     public IEnumerator SetTOZeroAfterTime()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.9f);
        // input = 0;
         previousValue = 0;
 
