@@ -12,7 +12,7 @@ public class NarrativeItem : MonoBehaviour
     public void SetScrollRects()
     {
         CameraMoveScrollController.scrollcanvas = scrollPanel.GetComponent<ScrollRect>();
-        CameraMoveScrollController.photoFader = scrollPanel.GetComponent<ShowPhoto>();
+      
 
     }
 }

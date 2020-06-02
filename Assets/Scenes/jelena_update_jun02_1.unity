@@ -154,7 +154,7 @@ RectTransform:
   - {fileID: 1586807726}
   - {fileID: 805433262}
   m_Father: {fileID: 1285525130}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -675,7 +675,7 @@ RectTransform:
   - {fileID: 1369349290}
   - {fileID: 553054307}
   m_Father: {fileID: 1285525130}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -904,7 +904,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.2
-  m_Text: "Entrance \nto the quarry"
+  m_Text: "From the \nbridge"
 --- !u!222 &125353213
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2597,7 +2597,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  photoFader: {fileID: 1772815640}
+  photoFader: {fileID: 484190124}
 --- !u!1 &395065294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,7 +2683,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.2
-  m_Text: "Entrance \nto the quarry"
+  m_Text: 'Clothes
+
+    of the executed'
 --- !u!222 &395065298
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2830,7 +2832,7 @@ RectTransform:
   - {fileID: 1339216886}
   - {fileID: 1550017407}
   m_Father: {fileID: 1815945414}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3008,7 +3010,7 @@ RectTransform:
   - {fileID: 855894122}
   - {fileID: 1714780068}
   m_Father: {fileID: 1950704883}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3305,7 +3307,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 01
+  m_Text: 05
 --- !u!222 &459918169
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3326,6 +3328,7 @@ GameObject:
   - component: {fileID: 484190123}
   - component: {fileID: 484190122}
   - component: {fileID: 484190121}
+  - component: {fileID: 484190124}
   m_Layer: 5
   m_Name: Photo-Canvas
   m_TagString: Untagged
@@ -3413,6 +3416,26 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &484190124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484190119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57508b41651c043e68927350e078fdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpdateNarrativeEvent: {fileID: 11400000, guid: 26dc70dbb26f3446991f09bf97929f0e,
+    type: 2}
+  photo: {fileID: 1215365849}
+  filledColor: {r: 0, g: 0, b: 0, a: 0}
+  clearColor: {r: 0, g: 0, b: 0, a: 0}
+  fadeOutTime: 1
+  canFadeIn: 0
+  canFadeOut: 0
 --- !u!1 &487964522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5174,7 +5197,6 @@ GameObject:
   - component: {fileID: 790262393}
   - component: {fileID: 790262392}
   - component: {fileID: 790262391}
-  - component: {fileID: 790262395}
   m_Layer: 5
   m_Name: 02-Scrollbar
   m_TagString: Untagged
@@ -5259,7 +5281,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  photoFader: {fileID: 790262395}
+  photoFader: {fileID: 484190124}
 --- !u!114 &790262392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5338,26 +5360,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790262389}
   m_CullTransparentMesh: 0
---- !u!114 &790262395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790262389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57508b41651c043e68927350e078fdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpdateNarrativeEvent: {fileID: 11400000, guid: 26dc70dbb26f3446991f09bf97929f0e,
-    type: 2}
-  photo: {fileID: 1215365849}
-  filledColor: {r: 0, g: 0, b: 0, a: 0}
-  clearColor: {r: 0, g: 0, b: 0, a: 0}
-  fadeOutTime: 2
-  canFadeIn: 0
-  canFadeOut: 0
 --- !u!1 &802306802
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,7 +5489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 290, y: -614.9999}
+  m_AnchoredPosition: {x: 290, y: -683}
   m_SizeDelta: {x: 500, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805433263
@@ -5565,7 +5567,6 @@ GameObject:
   - component: {fileID: 813023225}
   - component: {fileID: 813023224}
   - component: {fileID: 813023223}
-  - component: {fileID: 813023222}
   m_Layer: 5
   m_Name: 06-Scrollbar
   m_TagString: Untagged
@@ -5573,26 +5574,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &813023222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813023221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57508b41651c043e68927350e078fdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpdateNarrativeEvent: {fileID: 11400000, guid: 26dc70dbb26f3446991f09bf97929f0e,
-    type: 2}
-  photo: {fileID: 1215365849}
-  filledColor: {r: 0, g: 0, b: 0, a: 0}
-  clearColor: {r: 0, g: 0, b: 0, a: 0}
-  fadeOutTime: 2
-  canFadeIn: 0
-  canFadeOut: 0
 --- !u!114 &813023223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5650,7 +5631,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  photoFader: {fileID: 813023222}
+  photoFader: {fileID: 484190124}
 --- !u!114 &813023224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6060,7 +6041,6 @@ GameObject:
   - component: {fileID: 880533049}
   - component: {fileID: 880533048}
   - component: {fileID: 880533047}
-  - component: {fileID: 880533051}
   m_Layer: 5
   m_Name: 05-Scrollbar
   m_TagString: Untagged
@@ -6145,7 +6125,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  photoFader: {fileID: 880533051}
+  photoFader: {fileID: 484190124}
 --- !u!114 &880533048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6224,26 +6204,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880533045}
   m_CullTransparentMesh: 0
---- !u!114 &880533051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880533045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57508b41651c043e68927350e078fdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpdateNarrativeEvent: {fileID: 11400000, guid: 26dc70dbb26f3446991f09bf97929f0e,
-    type: 2}
-  photo: {fileID: 1215365849}
-  filledColor: {r: 0, g: 0, b: 0, a: 0}
-  clearColor: {r: 0, g: 0, b: 0, a: 0}
-  fadeOutTime: 2
-  canFadeIn: 0
-  canFadeOut: 0
 --- !u!1 &882190143
 GameObject:
   m_ObjectHideFlags: 0
@@ -6945,7 +6905,6 @@ GameObject:
   - component: {fileID: 992420000}
   - component: {fileID: 992419999}
   - component: {fileID: 992419998}
-  - component: {fileID: 992420002}
   m_Layer: 5
   m_Name: 03-Scrollbar
   m_TagString: Untagged
@@ -7030,7 +6989,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  photoFader: {fileID: 992420002}
+  photoFader: {fileID: 484190124}
 --- !u!114 &992419999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7109,26 +7068,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992419996}
   m_CullTransparentMesh: 0
---- !u!114 &992420002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992419996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57508b41651c043e68927350e078fdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpdateNarrativeEvent: {fileID: 11400000, guid: 26dc70dbb26f3446991f09bf97929f0e,
-    type: 2}
-  photo: {fileID: 1215365849}
-  filledColor: {r: 0, g: 0, b: 0, a: 0}
-  clearColor: {r: 0, g: 0, b: 0, a: 0}
-  fadeOutTime: 2
-  canFadeIn: 0
-  canFadeOut: 0
 --- !u!1 &1017137179
 GameObject:
   m_ObjectHideFlags: 0
@@ -7964,7 +7903,7 @@ RectTransform:
   - {fileID: 1779977961}
   - {fileID: 670745307}
   m_Father: {fileID: 1815945414}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8021,7 +7960,6 @@ GameObject:
   - component: {fileID: 1120304236}
   - component: {fileID: 1120304235}
   - component: {fileID: 1120304234}
-  - component: {fileID: 1120304238}
   m_Layer: 5
   m_Name: 04-Scrollbar
   m_TagString: Untagged
@@ -8106,7 +8044,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  photoFader: {fileID: 1120304238}
+  photoFader: {fileID: 484190124}
 --- !u!114 &1120304235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8185,26 +8123,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120304232}
   m_CullTransparentMesh: 0
---- !u!114 &1120304238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120304232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57508b41651c043e68927350e078fdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpdateNarrativeEvent: {fileID: 11400000, guid: 26dc70dbb26f3446991f09bf97929f0e,
-    type: 2}
-  photo: {fileID: 1215365849}
-  filledColor: {r: 0, g: 0, b: 0, a: 0}
-  clearColor: {r: 0, g: 0, b: 0, a: 0}
-  fadeOutTime: 2
-  canFadeIn: 0
-  canFadeOut: 0
 --- !u!1 &1128290419
 GameObject:
   m_ObjectHideFlags: 0
@@ -8767,8 +8685,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1517520354}
-  - {fileID: 102018474}
   - {fileID: 2004408}
+  - {fileID: 102018474}
   m_Father: {fileID: 1120304233}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10935,7 +10853,6 @@ GameObject:
   - component: {fileID: 1579221253}
   - component: {fileID: 1579221252}
   - component: {fileID: 1579221251}
-  - component: {fileID: 1579221255}
   m_Layer: 5
   m_Name: 01-Scrollbar
   m_TagString: Untagged
@@ -11020,7 +10937,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  photoFader: {fileID: 1579221255}
+  photoFader: {fileID: 484190124}
 --- !u!114 &1579221252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11099,26 +11016,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579221249}
   m_CullTransparentMesh: 0
---- !u!114 &1579221255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579221249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57508b41651c043e68927350e078fdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpdateNarrativeEvent: {fileID: 11400000, guid: 26dc70dbb26f3446991f09bf97929f0e,
-    type: 2}
-  photo: {fileID: 1215365849}
-  filledColor: {r: 0, g: 0, b: 0, a: 0}
-  clearColor: {r: 0, g: 0, b: 0, a: 0}
-  fadeOutTime: 2
-  canFadeIn: 0
-  canFadeOut: 0
 --- !u!1 &1586807725
 GameObject:
   m_ObjectHideFlags: 0
@@ -11204,7 +11101,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.2
-  m_Text: "Entrance \nto the quarry"
+  m_Text: 'Soldiers
+
+    seraching for
+
+    valuables'
 --- !u!222 &1586807729
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11725,7 +11626,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 01
+  m_Text: 06
 --- !u!222 &1663698532
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12675,7 +12576,6 @@ GameObject:
   - component: {fileID: 1772815638}
   - component: {fileID: 1772815636}
   - component: {fileID: 393223477}
-  - component: {fileID: 1772815640}
   m_Layer: 5
   m_Name: 00-Scrollbar
   m_TagString: Untagged
@@ -12781,26 +12681,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772815635}
   m_CullTransparentMesh: 0
---- !u!114 &1772815640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772815635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57508b41651c043e68927350e078fdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpdateNarrativeEvent: {fileID: 11400000, guid: 26dc70dbb26f3446991f09bf97929f0e,
-    type: 2}
-  photo: {fileID: 1215365849}
-  filledColor: {r: 0, g: 0, b: 0, a: 0}
-  clearColor: {r: 0, g: 0, b: 0, a: 0}
-  fadeOutTime: 1.5
-  canFadeIn: 0
-  canFadeOut: 0
 --- !u!1 &1779977960
 GameObject:
   m_ObjectHideFlags: 0
@@ -12886,7 +12766,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.2
-  m_Text: "Entrance \nto the quarry"
+  m_Text: Clothes
 --- !u!222 &1779977964
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13074,8 +12954,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1287901640}
-  - {fileID: 400626250}
   - {fileID: 1107592134}
+  - {fileID: 400626250}
   m_Father: {fileID: 813023227}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13231,7 +13111,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 01
+  m_Text: 04
 --- !u!222 &1833247569
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13593,7 +13473,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 01
+  m_Text: 03
 --- !u!222 &1854396836
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13987,6 +13867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8569ed8bf2b6341bb88c0f7277ab1c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photoFader: {fileID: 484190124}
   normalizedT: 0
   movementTime: 0.8
   rotationSpeed: 1
@@ -14151,8 +14032,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1238491717}
-  - {fileID: 408360405}
   - {fileID: 2107497256}
+  - {fileID: 408360405}
   m_Father: {fileID: 880533046}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15362,7 +15243,7 @@ RectTransform:
   - {fileID: 395065295}
   - {fileID: 1548597026}
   m_Father: {fileID: 1950704883}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

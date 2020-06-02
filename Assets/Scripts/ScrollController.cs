@@ -256,7 +256,7 @@ public class ScrollController : MonoBehaviour
     public IEnumerator SetCanScroll()
     {
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.9f);
         input = 0;
         canScroll = true;
         // previousValue = 0;
@@ -265,7 +265,7 @@ public class ScrollController : MonoBehaviour
 
     public IEnumerator CheckIfZeroAfterTime()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         if (input == 0)
         {
             previousValue = 0;
@@ -278,7 +278,7 @@ public class ScrollController : MonoBehaviour
 
     public IEnumerator SetTOZeroAfterTime()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.9f);
         // input = 0;
         previousValue = 0;
 
