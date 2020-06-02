@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class CameraMoveScrollController : MonoBehaviour
 {
+  //  public GameEvent onUpdateNarrative;
 
     public float normalizedT;
-    public ScrollRect scrollcanvas;
+    public static ScrollRect scrollcanvas;
+    public static ShowPhoto photoFader;
     public static Transform target1;
     public static Transform target2;
    // public Transform startCam;
@@ -44,7 +46,8 @@ public class CameraMoveScrollController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, endCam.rotation, rotationSpeed * Time.deltaTime);
 
             transform.position = Vector3.SmoothDamp(transform.position, endCam.position, ref refPos, movementTime);
-            //Interpolate Rotation
+
+          
 
             if (GetComponent<CameraPanController>() != null)
             {
@@ -55,9 +58,21 @@ public class CameraMoveScrollController : MonoBehaviour
             {
                 GetComponent<CameraOrbitController>().enabled = false;
             }
+
+            if (normalizedT > 0.95)
+            {
+                photoFader.FadeInPhoto();
+            }
+
         }
+
+        
+
         else
         {
+            NarrativeController.controller.setNextNarrative = false;
+            photoFader.FadeOutPhoto();
+
             transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
             if (GetComponent<CameraPanController>() != null)
             {

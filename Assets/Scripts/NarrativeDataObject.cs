@@ -14,7 +14,7 @@ public class NarrativeDataObject : MonoBehaviour
 
     private void Start()
     {
-        SetAnimationTargets();
+      //  SetAnimationTargets();
     }
 
 

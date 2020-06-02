@@ -36,8 +36,8 @@ public class CameraOrbitController : MonoBehaviour
                 _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
                 _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
 
-                _LocalRotation.y = Mathf.Clamp(_LocalRotation.y, -20f, 40f);
-                _LocalRotation.x = Mathf.Clamp(_LocalRotation.x, -10, 10);
+                _LocalRotation.y = Mathf.Clamp(_LocalRotation.y, -20f, 60f);
+                _LocalRotation.x = Mathf.Clamp(_LocalRotation.x, -30, 30);
 
 
 
