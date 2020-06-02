@@ -5,13 +5,18 @@ using UnityEngine.UI;
 
 public class CameraMoveScrollController : MonoBehaviour
 {
+  //  public GameEvent onUpdateNarrative;
 
     public float normalizedT;
-    public ScrollRect scrollcanvas;
-    public Transform target1;
-    public Transform target2;
-    public static bool forwardScroll;
+    public static ScrollRect scrollcanvas;
+    public static ShowPhoto photoFader;
+    public static Transform target1;
+    public static Transform target2;
+   // public Transform startCam;
+    public static Transform endCam;
 
+    public static bool forwardScroll;
+    
     public float movementTime = 1;
     public float rotationSpeed = 0.1f;
 
@@ -21,7 +26,7 @@ public class CameraMoveScrollController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,11 +39,17 @@ public class CameraMoveScrollController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
 
         }
-        if (normalizedT > 0.9) { 
-        transform.position = Vector3.SmoothDamp(transform.position, target1.position, ref refPos, movementTime);
-        //Interpolate Rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, target1.rotation, rotationSpeed * Time.deltaTime);
-            if(GetComponent<CameraPanController>() != null)
+       
+
+        if (normalizedT > 0.9)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, endCam.rotation, rotationSpeed * Time.deltaTime);
+
+            transform.position = Vector3.SmoothDamp(transform.position, endCam.position, ref refPos, movementTime);
+
+          
+
+            if (GetComponent<CameraPanController>() != null)
             {
                 GetComponent<CameraPanController>().enabled = false;
             }
@@ -47,9 +58,21 @@ public class CameraMoveScrollController : MonoBehaviour
             {
                 GetComponent<CameraOrbitController>().enabled = false;
             }
+
+            if (normalizedT > 0.95)
+            {
+                photoFader.FadeInPhoto();
+            }
+
         }
+
+        
+
         else
         {
+            NarrativeController.controller.setNextNarrative = false;
+            photoFader.FadeOutPhoto();
+
             transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
             if (GetComponent<CameraPanController>() != null)
             {
@@ -65,10 +88,11 @@ public class CameraMoveScrollController : MonoBehaviour
 
     public void SetMoveValues()
     {
-        normalizedT = 1-  scrollcanvas.verticalNormalizedPosition;
-        Debug.Log(forwardScroll);
-        if (forwardScroll) { 
-        transform.position = Vector3.Lerp(transform.position, target1.position, normalizedT/100);
+        normalizedT = 1 - scrollcanvas.verticalNormalizedPosition;
+//        Debug.Log(forwardScroll);
+        if (forwardScroll)
+        {
+            transform.position = Vector3.Lerp(transform.position, target1.position, normalizedT / 100);
         }
         if (!forwardScroll)
         {
@@ -76,5 +100,5 @@ public class CameraMoveScrollController : MonoBehaviour
         }
 
     }
-    
+
 }
