@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class CameraMoveScrollController : MonoBehaviour
 {
-  //  public GameEvent onUpdateNarrative;
+    //  public GameEvent onUpdateNarrative;
+    public ShowPhoto photoFader;
 
     public float normalizedT;
     public static ScrollRect scrollcanvas;
-    public static ShowPhoto photoFader;
+    
     public static Transform target1;
     public static Transform target2;
    // public Transform startCam;

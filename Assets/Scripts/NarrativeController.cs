@@ -38,7 +38,7 @@ public class NarrativeController : MonoBehaviour
 
     public void SetNextNarrative()
     {
-        if (narrativeID < narrativeItems.Length)
+        if (narrativeID < narrativeItems.Length-1)
         {
             setNextNarrative = false;
             narrativeID++;
