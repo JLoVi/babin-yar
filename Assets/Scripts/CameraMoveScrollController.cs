@@ -8,13 +8,13 @@ public class CameraMoveScrollController : MonoBehaviour
 
     public float normalizedT;
     public ScrollRect scrollcanvas;
-    public Transform target1;
-    public Transform target2;
+    public static Transform target1;
+    public static Transform target2;
    // public Transform startCam;
-    public Transform endCam;
+    public static Transform endCam;
 
     public static bool forwardScroll;
-
+    
     public float movementTime = 1;
     public float rotationSpeed = 0.1f;
 

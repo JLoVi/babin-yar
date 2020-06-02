@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/jelena_update_may26.unity
-    guid: e0b991a119c124330994f1cafc350699
+    path: Assets/Scenes/jelena_update_may26_01.unity
+    guid: 36dc45f3dd7f94c258cfd68cbbcad203
   m_configObjects: {}
