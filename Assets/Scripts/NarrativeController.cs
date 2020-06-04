@@ -23,6 +23,11 @@ public class NarrativeController : MonoBehaviour
 
         narrativeID = 0;
 
+        foreach (GameObject go in scrollPanels)
+        {
+            go.SetActive(false);
+        }
+        SetCurrentNarrativePhoto();
         SwitchNarrative();
     }
 
@@ -41,6 +46,10 @@ public class NarrativeController : MonoBehaviour
     {
         if (narrativeID < narrativeItems.Length-1)
         {
+            foreach (GameObject go in scrollPanels)
+            {
+                go.SetActive(false);
+            }
             setNextNarrative = false;
             narrativeID++;
             SwitchNarrative();
@@ -51,7 +60,7 @@ public class NarrativeController : MonoBehaviour
     {
         GetCurrentNarrativeData();
         SetCurrentNarrativeScrollPanel();
-        SetCurrentNarrativePhoto();
+      //  SetCurrentNarrativePhoto();
         currentNarrative.SetAnimationTargets();
     }
 
@@ -62,15 +71,12 @@ public class NarrativeController : MonoBehaviour
 
     private void SetCurrentNarrativeScrollPanel()
     {
-        foreach (GameObject go in scrollPanels)
-        {
-            go.SetActive(false);
-        }
+       
         narrativeItems[narrativeID].scrollPanel.SetActive(true);
         narrativeItems[narrativeID].SetScrollRects();
     }
 
-    private void SetCurrentNarrativePhoto()
+    public void SetCurrentNarrativePhoto()
     {
         narrativeItems[narrativeID].SetPhotoToShow();
     }

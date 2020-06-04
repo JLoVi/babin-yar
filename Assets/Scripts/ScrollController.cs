@@ -21,8 +21,12 @@ public class ScrollController : MonoBehaviour
     private int previousValue;
     public AnimationCurve MoveCurve;
 
-    public ShowPhoto photoFader;
-  
+   // public ShowPhoto photoFader;
+
+    public GameEvent UpdateNarrativeEvent;
+    public GameEvent FadeOutPhotoEvent;
+
+
 
     void Start()
     {
@@ -91,10 +95,11 @@ public class ScrollController : MonoBehaviour
         //  Debug.Log(x);
         if (input == 1 && canScroll && previousValue != 1 && previousValue != 2) // forward
         {
-            //  input = 0;
             if (NarrativeController.controller.setNextNarrative)
             {
-                photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
+                //photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
+                FadeOutPhotoEvent.Raise();
+                StartCoroutine(ScrollToBlank());
                 return;
             }
             canScroll = false;
@@ -117,7 +122,10 @@ public class ScrollController : MonoBehaviour
         {
             if (NarrativeController.controller.setNextNarrative)
             {
-                photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
+                // photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
+                FadeOutPhotoEvent.Raise();
+                StartCoroutine(ScrollToBlank());
+
                 return;
             }
             canScroll = false;
@@ -315,11 +323,16 @@ public class ScrollController : MonoBehaviour
 
     public void ScrollToEnd()
     {
-        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, canvasEndCorrectedPos));
+        StartCoroutine(ScrollToNormalisedPosition(1f, 0.99f, canvasEndCorrectedPos));
     }
 
-    public void ScrollToBlank()
+    public IEnumerator ScrollToBlank()
     {
-        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.1f));
+        StartCoroutine(ScrollToNormalisedPosition(1f, startPos, 0.05f));
+        yield return new WaitForSeconds(1f);
+        if (NarrativeController.controller.setNextNarrative)
+        {
+            UpdateNarrativeEvent.Raise();
+        }
     }
 }

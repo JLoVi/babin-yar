@@ -34,7 +34,7 @@ public class CameraMoveScrollController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (normalizedT < 0.1)
+        if (normalizedT < 0.1 && normalizedT< 0.6)
         {
             transform.position = Vector3.SmoothDamp(transform.position, target2.position, ref refPos, movementTime);
             //Interpolate Rotation
@@ -63,7 +63,7 @@ public class CameraMoveScrollController : MonoBehaviour
 
             if (normalizedT > 0.65)
             {
-                photoFader.FadeInPhoto(photoToShow);
+                photoFader.FadeInPhoto();
             }
 
         }
@@ -73,7 +73,7 @@ public class CameraMoveScrollController : MonoBehaviour
         else
         {
             NarrativeController.controller.setNextNarrative = false;
-            photoFader.FadeOutPhoto(photoToShow);
+            photoFader.FadeOutPhoto();
 
             transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
             if (GetComponent<CameraPanController>() != null)

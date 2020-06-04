@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ShowPhoto : MonoBehaviour
 {
-    public GameEvent UpdateNarrativeEvent;
   //  public Image photo;
     public Color filledColor;
     public Color clearColor;
@@ -29,27 +28,27 @@ public class ShowPhoto : MonoBehaviour
         canFadeOut = false;
     }
 
-    public void FadeInPhoto(Image photo)
+    public void FadeInPhoto()
     {
 
         if (canFadeIn)
         {
 
-            StartCoroutine(FadeInRoutine(clearColor, filledColor, photo));
+            StartCoroutine(FadeInRoutine(clearColor, filledColor, CameraMoveScrollController.photoToShow));
         }
     }
 
-    public void FadeOutPhoto(Image photo)
+    public void FadeOutPhoto()
     {
        
 
         if (canFadeOut)
         {
 
-            if (photo.color != clearColor)
+            if (CameraMoveScrollController.photoToShow.color != clearColor)
             {
                 StopAllCoroutines();
-                StartCoroutine(FadeOutRoutine(photo.color, clearColor, photo));
+                StartCoroutine(FadeOutRoutine(CameraMoveScrollController.photoToShow.color, clearColor, CameraMoveScrollController.photoToShow));
             }
         }
     }
@@ -83,17 +82,15 @@ public class ShowPhoto : MonoBehaviour
         canFadeOut = false;
         canFadeIn = true;
 
-        if (NarrativeController.controller.setNextNarrative)
-        {
-            UpdateNarrativeEvent.Raise();
-        }
+        
         for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
         {
             photo.color = Color.Lerp(startColor, endColor, Mathf.Min(1, t / fadeOutTime));
 
             yield return null;
         }
-        
+
+        NarrativeController.controller.SetCurrentNarrativePhoto();
 
 
     }
