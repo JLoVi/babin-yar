@@ -12,8 +12,9 @@ public class ScrollController : MonoBehaviour
     private int currentPage;
     //  public Transform[] pages;
     public float transitionStep;
+    public float canvasEndCorrectedPos;
     private float startPos;
-
+    
     private bool canScroll;
     private int input;
 
@@ -25,16 +26,20 @@ public class ScrollController : MonoBehaviour
 
     void Start()
     {
+        canvasEndCorrectedPos = 1 - canvasEndCorrectedPos;
         input = 0;
         canScroll = true;
 
         currentPage = 0;
 
-        if (NarrativeController.controller.narrativeID != 0)
+        if ( NarrativeController.controller.narrativeID >3)
         {
             ScrollToMiddle();
         }
-
+        if (NarrativeController.controller.narrativeID == 1 || NarrativeController.controller.narrativeID == 2 || NarrativeController.controller.narrativeID == 3)
+        {
+            ScrollToEnd();
+        }
     }
 
     // Update is called once per frame
@@ -47,14 +52,14 @@ public class ScrollController : MonoBehaviour
         startPos = m_ScrollRect.verticalNormalizedPosition;
         var x = Input.GetAxis("Mouse ScrollWheel");
 
-        if (x > 0.25f)
+        if (x > 0)
         {
             //  StartCoroutine(SetTOZeroAfterTime());
             input = -2;
             CameraMoveScrollController.forwardScroll = false;
         }
 
-        if (x < -0.25)
+        if (x < 0)
         {
             // StartCoroutine(SetTOZeroAfterTime());
 
@@ -62,7 +67,7 @@ public class ScrollController : MonoBehaviour
             CameraMoveScrollController.forwardScroll = true;
         }
 
-        if (x > 0.1f && x < 0.25f)
+     /*   if (x > 0.1f && x < 0.25f)
         {
             // StartCoroutine(SetTOZeroAfterTime());
 
@@ -76,7 +81,7 @@ public class ScrollController : MonoBehaviour
 
             input = 1;
             CameraMoveScrollController.forwardScroll = true;
-        }
+        }*/
 
         if (x == 0)
         {
@@ -89,7 +94,7 @@ public class ScrollController : MonoBehaviour
             //  input = 0;
             if (NarrativeController.controller.setNextNarrative)
             {
-                photoFader.FadeOutPhoto();
+                photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
                 return;
             }
             canScroll = false;
@@ -100,7 +105,6 @@ public class ScrollController : MonoBehaviour
         }
         if (input == -1 && canScroll && previousValue != -1 && previousValue != -2) // backwards
         {
-            // input = 0;
 
             canScroll = false;
            // Debug.Log(input);
@@ -111,10 +115,9 @@ public class ScrollController : MonoBehaviour
         //  Debug.Log(x);
         if (input == 2 && canScroll && previousValue != 1 && previousValue != 2) // forward
         {
-            //  input = 0;
             if (NarrativeController.controller.setNextNarrative)
             {
-                photoFader.FadeOutPhoto();
+                photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
                 return;
             }
             canScroll = false;
@@ -126,7 +129,6 @@ public class ScrollController : MonoBehaviour
         }
         if (input == -2 && canScroll && previousValue != -1 && previousValue != -2) // backwards
         {
-            //  input = 0;
 
             canScroll = false;
           //  Debug.Log(input);
@@ -175,7 +177,7 @@ public class ScrollController : MonoBehaviour
 
         if (currentPage == 3)
         {
-            targetPos = 0;
+            targetPos = canvasEndCorrectedPos;
             StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos));
         }
         else
@@ -256,7 +258,7 @@ public class ScrollController : MonoBehaviour
     public IEnumerator SetCanScroll()
     {
 
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(1.2f);
         input = 0;
         canScroll = true;
         // previousValue = 0;
@@ -278,7 +280,7 @@ public class ScrollController : MonoBehaviour
 
     public IEnumerator SetTOZeroAfterTime()
     {
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(1.2f);
         // input = 0;
         previousValue = 0;
 
@@ -289,17 +291,17 @@ public class ScrollController : MonoBehaviour
         float verticalPos = m_ScrollRect.verticalNormalizedPosition;
 
 
-        if (verticalPos > 0 && verticalPos <= 0.33f)
+        if (verticalPos > 0.25f && verticalPos <= 0.5f)
         {
             currentPage = 3;
         }
 
-        if (verticalPos > 0.33 && verticalPos <= 0.7f)
+        if (verticalPos > 0.5f && verticalPos <= 0.75f)
         {
             currentPage = 2;
         }
 
-        if (verticalPos > 0.7 && verticalPos <= 1f)
+        if (verticalPos > 0.75f && verticalPos <= 1f)
         {
             currentPage = 1;
         }
@@ -311,5 +313,13 @@ public class ScrollController : MonoBehaviour
         StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.6f));
     }
 
-   
+    public void ScrollToEnd()
+    {
+        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, canvasEndCorrectedPos));
+    }
+
+    public void ScrollToBlank()
+    {
+        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.1f));
+    }
 }

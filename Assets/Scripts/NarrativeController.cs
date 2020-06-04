@@ -23,8 +23,9 @@ public class NarrativeController : MonoBehaviour
 
         narrativeID = 0;
 
-        SwitchNarrative(narrativeID);
+        SwitchNarrative();
     }
+
     void Start()
     {
 
@@ -42,14 +43,15 @@ public class NarrativeController : MonoBehaviour
         {
             setNextNarrative = false;
             narrativeID++;
-            SwitchNarrative(narrativeID);
+            SwitchNarrative();
         }
     }
 
-    private void SwitchNarrative(int id)
+    private void SwitchNarrative()
     {
         GetCurrentNarrativeData();
         SetCurrentNarrativeScrollPanel();
+        SetCurrentNarrativePhoto();
         currentNarrative.SetAnimationTargets();
     }
 
@@ -66,6 +68,11 @@ public class NarrativeController : MonoBehaviour
         }
         narrativeItems[narrativeID].scrollPanel.SetActive(true);
         narrativeItems[narrativeID].SetScrollRects();
+    }
+
+    private void SetCurrentNarrativePhoto()
+    {
+        narrativeItems[narrativeID].SetPhotoToShow();
     }
 
 }

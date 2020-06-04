@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShowPhoto : MonoBehaviour
 {
     public GameEvent UpdateNarrativeEvent;
-    public Image photo;
+  //  public Image photo;
     public Color filledColor;
     public Color clearColor;
 
@@ -19,36 +19,42 @@ public class ShowPhoto : MonoBehaviour
 
     public void Start()
     {
-        filledColor = new Color(photo.color.r, photo.color.g, photo.color.b, 1);
+
+        filledColor = new Color(CameraMoveScrollController.photoToShow.color.r,
+            CameraMoveScrollController.photoToShow.color.g,
+            CameraMoveScrollController.photoToShow.color.b, 0.8f);
         clearColor = Color.clear;
+
         canFadeIn = true;
         canFadeOut = false;
     }
 
-    public void FadeInPhoto()
+    public void FadeInPhoto(Image photo)
     {
 
         if (canFadeIn)
         {
 
-            StartCoroutine(FadeInRoutine(clearColor, filledColor));
+            StartCoroutine(FadeInRoutine(clearColor, filledColor, photo));
         }
     }
 
-    public void FadeOutPhoto()
+    public void FadeOutPhoto(Image photo)
     {
+       
+
         if (canFadeOut)
         {
 
             if (photo.color != clearColor)
             {
                 StopAllCoroutines();
-                StartCoroutine(FadeOutRoutine(photo.color, clearColor));
+                StartCoroutine(FadeOutRoutine(photo.color, clearColor, photo));
             }
         }
     }
 
-    private IEnumerator FadeInRoutine(Color startColor, Color endColor)
+    private IEnumerator FadeInRoutine(Color startColor, Color endColor, Image photo)
     {
         canFadeIn = false;
         canFadeOut = true;
@@ -72,7 +78,7 @@ public class ShowPhoto : MonoBehaviour
 
     }
 
-    private IEnumerator FadeOutRoutine(Color startColor, Color endColor)
+    private IEnumerator FadeOutRoutine(Color startColor, Color endColor, Image photo)
     {
         canFadeOut = false;
         canFadeIn = true;

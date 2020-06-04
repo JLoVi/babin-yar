@@ -10,7 +10,8 @@ public class CameraMoveScrollController : MonoBehaviour
 
     public float normalizedT;
     public static ScrollRect scrollcanvas;
-    
+    public static Image photoToShow;
+
     public static Transform target1;
     public static Transform target2;
    // public Transform startCam;
@@ -42,7 +43,7 @@ public class CameraMoveScrollController : MonoBehaviour
         }
        
 
-        if (normalizedT > 0.9)
+        if (normalizedT > 0.6)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, endCam.rotation, rotationSpeed * Time.deltaTime);
 
@@ -60,9 +61,9 @@ public class CameraMoveScrollController : MonoBehaviour
                 GetComponent<CameraOrbitController>().enabled = false;
             }
 
-            if (normalizedT > 0.95)
+            if (normalizedT > 0.65)
             {
-                photoFader.FadeInPhoto();
+                photoFader.FadeInPhoto(photoToShow);
             }
 
         }
@@ -72,7 +73,7 @@ public class CameraMoveScrollController : MonoBehaviour
         else
         {
             NarrativeController.controller.setNextNarrative = false;
-            photoFader.FadeOutPhoto();
+            photoFader.FadeOutPhoto(photoToShow);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
             if (GetComponent<CameraPanController>() != null)

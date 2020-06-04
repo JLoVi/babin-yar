@@ -12,16 +12,26 @@ public class NarrativeDataObject : MonoBehaviour
 
     public Camera mainCam;
 
+    public bool offset;
+
+
     private void Start()
     {
-      //  SetAnimationTargets();
+        //  SetAnimationTargets();
     }
 
 
     void LateUpdate()
     {
         Vector3 screenPos = mainCam.WorldToScreenPoint(endposition.transform.position);
-        this.transform.position = new Vector3(screenPos.x, screenPos.y, this.transform.position.z);
+        if (offset)
+        {
+            this.transform.position = new Vector3(screenPos.x-20, screenPos.y + 40, this.transform.position.z);
+        }
+        else
+        {
+            this.transform.position = new Vector3(screenPos.x, screenPos.y, this.transform.position.z);
+        }
     }
 
     public void DisplayTargetDescription(bool state)
