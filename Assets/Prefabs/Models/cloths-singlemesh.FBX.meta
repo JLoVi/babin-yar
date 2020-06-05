@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 4d76fdd34b51a41e1905e2b4bba77de7
+guid: 4b95fdc891d724626813ac1edfcc2a60
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: defaultMat
-    second: {fileID: 2100000, guid: 9868a8c8ee21c4d8882b54077627a52e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sand quarry material
-    second: {fileID: 2100000, guid: 4ae3d625a1e684ec7a2bb20e8fbcb540, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: PM3D_hill to zbrush-TM_u0_v0_copy
-    second: {fileID: 2800000, guid: f192bca11dd7a4545b9c095dea96a547, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: "PM3D_hill to zbrush-TM_u0_v0_\u0442\u0449\u043A\u044C\u0444\u0434"
-    second: {fileID: 2800000, guid: ac7e42afe13a344a5a7c2011e38e3ed0, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
