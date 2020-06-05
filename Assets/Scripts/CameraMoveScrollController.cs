@@ -10,7 +10,7 @@ public class CameraMoveScrollController : MonoBehaviour
 
     public float normalizedT;
     public static ScrollRect scrollcanvas;
-    public static Image photoToShow;
+  //  public static Image photoToShow;
 
     public static Transform target1;
     public static Transform target2;
@@ -63,6 +63,7 @@ public class CameraMoveScrollController : MonoBehaviour
 
             if (normalizedT > 0.65)
             {
+                NarrativeController.controller.SetCurrentNarrativePhoto();
                 photoFader.FadeInPhoto();
             }
 

@@ -99,6 +99,7 @@ public class ScrollController : MonoBehaviour
             {
                 //photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
                 FadeOutPhotoEvent.Raise();
+               
                 StartCoroutine(ScrollToBlank());
                 return;
             }
@@ -123,6 +124,7 @@ public class ScrollController : MonoBehaviour
             if (NarrativeController.controller.setNextNarrative)
             {
                 // photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
+                Debug.Log("photo fadeout");
                 FadeOutPhotoEvent.Raise();
                 StartCoroutine(ScrollToBlank());
 

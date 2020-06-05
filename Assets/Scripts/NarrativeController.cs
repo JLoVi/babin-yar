@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NarrativeController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class NarrativeController : MonoBehaviour
     public NarrativeItem[] narrativeItems;
 
     public NarrativeDataObject currentNarrative;
+
+    public Image[] photos;
+    public Image currentNarrativePhoto;
 
     public static NarrativeController controller;
 
@@ -78,7 +82,7 @@ public class NarrativeController : MonoBehaviour
 
     public void SetCurrentNarrativePhoto()
     {
-        narrativeItems[narrativeID].SetPhotoToShow();
+       currentNarrativePhoto =  narrativeItems[narrativeID].photo;
     }
 
 }

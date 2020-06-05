@@ -17,12 +17,7 @@ public class NarrativeItem : MonoBehaviour
 
     }
 
-    public void SetPhotoToShow()
-    {
-        CameraMoveScrollController.photoToShow = photo;
-
-
-    }
+   
 }
 
 

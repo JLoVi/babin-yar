@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShowPhoto : MonoBehaviour
 {
-  //  public Image photo;
+    //  public Image photo;
     public Color filledColor;
     public Color clearColor;
 
@@ -14,14 +14,14 @@ public class ShowPhoto : MonoBehaviour
     public bool canFadeIn;
     public bool canFadeOut;
 
-   
+
 
     public void Start()
     {
 
-        filledColor = new Color(CameraMoveScrollController.photoToShow.color.r,
-            CameraMoveScrollController.photoToShow.color.g,
-            CameraMoveScrollController.photoToShow.color.b, 0.8f);
+        filledColor = new Color(NarrativeController.controller.currentNarrativePhoto.color.r,
+             NarrativeController.controller.currentNarrativePhoto.color.g,
+             NarrativeController.controller.currentNarrativePhoto.color.b, 0.8f);
         clearColor = Color.clear;
 
         canFadeIn = true;
@@ -30,26 +30,29 @@ public class ShowPhoto : MonoBehaviour
 
     public void FadeInPhoto()
     {
-
         if (canFadeIn)
         {
+            NarrativeController.controller.SetCurrentNarrativePhoto();
 
-            StartCoroutine(FadeInRoutine(clearColor, filledColor, CameraMoveScrollController.photoToShow));
+            StartCoroutine(FadeInRoutine(clearColor, filledColor, NarrativeController.controller.currentNarrativePhoto));
         }
     }
 
     public void FadeOutPhoto()
     {
-       
 
         if (canFadeOut)
         {
 
-            if (CameraMoveScrollController.photoToShow.color != clearColor)
+
+            NarrativeController.controller.SetCurrentNarrativePhoto();
+
+            StopAllCoroutines();
+            foreach (Image photo in NarrativeController.controller.photos)
             {
-                StopAllCoroutines();
-                StartCoroutine(FadeOutRoutine(CameraMoveScrollController.photoToShow.color, clearColor, CameraMoveScrollController.photoToShow));
+                StartCoroutine(FadeOutRoutine(photo.color, clearColor, photo));
             }
+
         }
     }
 
@@ -82,7 +85,7 @@ public class ShowPhoto : MonoBehaviour
         canFadeOut = false;
         canFadeIn = true;
 
-        
+
         for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
         {
             photo.color = Color.Lerp(startColor, endColor, Mathf.Min(1, t / fadeOutTime));
@@ -90,10 +93,19 @@ public class ShowPhoto : MonoBehaviour
             yield return null;
         }
 
-        NarrativeController.controller.SetCurrentNarrativePhoto();
+
 
 
     }
 
+    public IEnumerator FadeOutPhotoSimple(Color startColor, Color endColor, Image photo)
+    {
+        for (float t = 0.01f; t < 0.3; t += Time.deltaTime)
+        {
+            photo.color = Color.Lerp(startColor, endColor, Mathf.Min(1, t / fadeOutTime));
+
+            yield return null;
+        }
+    }
 }
 
