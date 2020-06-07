@@ -38,11 +38,11 @@ public class ScrollController : MonoBehaviour
         currentPage = 0;
 
 
-        if ( NarrativeController.controller.narrativeID ==3)
+        if ( NarrativeController.controller.narrativeID ==4 || NarrativeController.controller.narrativeID == 5 || NarrativeController.controller.narrativeID == 6)
         {
             ScrollToMiddle();
         }
-        if (NarrativeController.controller.narrativeID == 1 || NarrativeController.controller.narrativeID == 2 || NarrativeController.controller.narrativeID == 3)
+        if (NarrativeController.controller.narrativeID == 1 || NarrativeController.controller.narrativeID == 2 || NarrativeController.controller.narrativeID == 3 || NarrativeController.controller.narrativeID == 7)
         {
             ScrollToEnd();
         }
@@ -95,7 +95,7 @@ public class ScrollController : MonoBehaviour
         }
 
         //  Debug.Log(x);
-        if (input == 1 && canScroll && previousValue != 1 && previousValue != 2) // forward
+        if (input == 1 && canScroll && previousValue != 1 && previousValue != 2 && CameraMoveScrollController.controller.scrollToEnd != true) // forward
         {
             if (NarrativeController.controller.setNextNarrative)
             {
@@ -121,7 +121,7 @@ public class ScrollController : MonoBehaviour
             StartCoroutine(SetTOZeroAfterTime());
         }
         //  Debug.Log(x);
-        if (input == 2 && canScroll && previousValue != 1 && previousValue != 2) // forward
+        if (input == 2 && canScroll && previousValue != 1 && previousValue != 2 && CameraMoveScrollController.controller.scrollToEnd != true) // forward
         {
             if (NarrativeController.controller.setNextNarrative)
             {
@@ -161,7 +161,7 @@ public class ScrollController : MonoBehaviour
 
         float scrollTime;
         float targetPos;
-        //  Debug.Log("forward");
+         Debug.Log("forward");
 
         
 
@@ -178,23 +178,23 @@ public class ScrollController : MonoBehaviour
         else
         {
             scrollTime = 1f;
-            targetPos = 1 - (transitionStep * currentPage);
+            targetPos = startPos - transitionStep;
         }
 
         IEnumerator co;
 
-        co = ScrollToNormalisedPosition(scrollTime, startPos, targetPos);
+        co = ScrollToNormalisedPosition(scrollTime, startPos, targetPos, false);
 
         StopCoroutine(co); // stop it.
 
         if (currentPage == 3)
         {
             targetPos = canvasEndCorrectedPos;
-            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos));
+            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos, false));
         }
         else
         {
-            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos));
+            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos, false));
         }
         //  }
         //   else { return; }
@@ -230,32 +230,33 @@ public class ScrollController : MonoBehaviour
         IEnumerator co;
 
         // co = ScrollToNormalisedPosition(1f, startPos, startPos + transitionStep); // create an IEnumerator object
-        co = ScrollToNormalisedPosition(scrollTime, startPos, targetPos);
+        co = ScrollToNormalisedPosition(scrollTime, startPos, targetPos, true);
         //StartCoroutine(co); // start the coroutine
         StopCoroutine(co); // stop it.
 
 
         if (currentPage == 1)
         {
-            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, 1));
+            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, 1, true));
         }
 
         if (currentPage == 3)
         {
-            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, startPos + transitionStep));
+            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, startPos + transitionStep, true));
         }
         else
         {
             //StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, startPos + transitionStep));
-            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos));
+            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos, true));
         }
         //   }
         //   else { return; }
 
     }
 
-    public IEnumerator ScrollToNormalisedPosition(float scrollTime, float currentPos, float targetPos)
+    public IEnumerator ScrollToNormalisedPosition(float scrollTime, float currentPos, float targetPos, bool canMoveCam)
     {
+        CameraMoveScrollController.controller.canMoveCam = canMoveCam;
 
         for (float t = 0.01f; t < scrollTime; t += Time.deltaTime)
         {
@@ -263,7 +264,7 @@ public class ScrollController : MonoBehaviour
             yield return null;
 
         }
-
+        CameraMoveScrollController.controller.scrollToEnd = false;
        
     }
 
@@ -322,17 +323,19 @@ public class ScrollController : MonoBehaviour
 
     public void ScrollToMiddle()
     {
-        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.5f));
+       
+        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.65f, false));
     }
 
     public void ScrollToEnd()
     {
-        StartCoroutine(ScrollToNormalisedPosition(1f, 0.99f, canvasEndCorrectedPos));
+        CameraMoveScrollController.controller.scrollToEnd = true;
+        StartCoroutine(ScrollToNormalisedPosition(1f, 0.99f, canvasEndCorrectedPos, false));
     }
 
     public IEnumerator ScrollToBlank()
     {
-        StartCoroutine(ScrollToNormalisedPosition(1f, startPos, 0.05f));
+        StartCoroutine(ScrollToNormalisedPosition(1f, startPos, 0.05f, false));
         yield return new WaitForSeconds(1f);
         if (NarrativeController.controller.setNextNarrative)
         {
