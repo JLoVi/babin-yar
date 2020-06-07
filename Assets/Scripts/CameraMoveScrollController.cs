@@ -34,12 +34,23 @@ public class CameraMoveScrollController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (normalizedT < 0.1 && normalizedT< 0.6)
+
+      /*  if (normalizedT <0.2 && normalizedT< 0.6)
         {
             transform.position = Vector3.SmoothDamp(transform.position, target2.position, ref refPos, movementTime);
             //Interpolate Rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
 
+        }*/
+
+        if(normalizedT < 0.2)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
+
+            transform.position = Vector3.SmoothDamp(transform.position, target2.position, ref refPos, movementTime);
+
+
+       
         }
        
 

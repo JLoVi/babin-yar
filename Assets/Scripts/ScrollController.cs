@@ -26,6 +26,7 @@ public class ScrollController : MonoBehaviour
     public GameEvent UpdateNarrativeEvent;
     public GameEvent FadeOutPhotoEvent;
 
+    
 
 
     void Start()
@@ -35,6 +36,7 @@ public class ScrollController : MonoBehaviour
         canScroll = true;
 
         currentPage = 0;
+
 
         if ( NarrativeController.controller.narrativeID >3)
         {
@@ -124,7 +126,7 @@ public class ScrollController : MonoBehaviour
             if (NarrativeController.controller.setNextNarrative)
             {
                 // photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
-                Debug.Log("photo fadeout");
+//                Debug.Log("photo fadeout");
                 FadeOutPhotoEvent.Raise();
                 StartCoroutine(ScrollToBlank());
 
@@ -330,11 +332,14 @@ public class ScrollController : MonoBehaviour
 
     public IEnumerator ScrollToBlank()
     {
+        
+       
         StartCoroutine(ScrollToNormalisedPosition(1f, startPos, 0.05f));
         yield return new WaitForSeconds(1f);
         if (NarrativeController.controller.setNextNarrative)
         {
             UpdateNarrativeEvent.Raise();
         }
+        
     }
 }
