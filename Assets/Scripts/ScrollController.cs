@@ -38,7 +38,7 @@ public class ScrollController : MonoBehaviour
         currentPage = 0;
 
 
-        if ( NarrativeController.controller.narrativeID >3)
+        if ( NarrativeController.controller.narrativeID ==3)
         {
             ScrollToMiddle();
         }
@@ -322,7 +322,7 @@ public class ScrollController : MonoBehaviour
 
     public void ScrollToMiddle()
     {
-        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.6f));
+        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.5f));
     }
 
     public void ScrollToEnd()
@@ -332,8 +332,6 @@ public class ScrollController : MonoBehaviour
 
     public IEnumerator ScrollToBlank()
     {
-        
-       
         StartCoroutine(ScrollToNormalisedPosition(1f, startPos, 0.05f));
         yield return new WaitForSeconds(1f);
         if (NarrativeController.controller.setNextNarrative)
