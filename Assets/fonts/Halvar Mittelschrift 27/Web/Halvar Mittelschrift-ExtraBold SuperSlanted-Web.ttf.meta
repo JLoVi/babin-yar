@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: b56de19b5052b4b0fa3bc9e1bb47efe0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Halvar Mittelschrift CY
+  fontNames:
+  - Halvar Mittelschrift CY
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e36b960083ac94120a18e66f0a298471, type: 3}
+  - {fileID: 12800000, guid: a43a09327f30d47438688b62c8024ab1, type: 3}
+  - {fileID: 12800000, guid: 94169ed459a7845ac9d485acca1055f0, type: 3}
+  - {fileID: 12800000, guid: 34d861672ded24c74a832ac7473f8a92, type: 3}
+  - {fileID: 12800000, guid: 82f634f73fae44c5c8c3755f0100833a, type: 3}
+  - {fileID: 12800000, guid: a2ab3e68d2778462688d1ce0157621c0, type: 3}
+  - {fileID: 12800000, guid: 612ec9d9210ef4c7b9741bc2820716b5, type: 3}
+  - {fileID: 12800000, guid: 43e5b2cb3fe564ee1805f0c187f79ed0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
