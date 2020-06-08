@@ -26,7 +26,7 @@ public class ScrollController : MonoBehaviour
     public GameEvent UpdateNarrativeEvent;
     public GameEvent FadeOutPhotoEvent;
 
-    
+    private int previouspg_0;
 
 
     void Start()
@@ -36,7 +36,7 @@ public class ScrollController : MonoBehaviour
         canScroll = true;
 
         currentPage = 0;
-
+        previouspg_0 = 0;
 
         if ( NarrativeController.controller.narrativeID ==4 || NarrativeController.controller.narrativeID == 5 || NarrativeController.controller.narrativeID == 6)
         {
@@ -53,8 +53,41 @@ public class ScrollController : MonoBehaviour
     {
         //Debug.Log(m_ScrollRect.verticalNormalizedPosition);
         //  Debug.Log("previousvalue" + previousValue);
-
+        previouspg_0 = currentPage;
         GetCurrentPage();
+        if (NarrativeController.controller.narrativeID == 0)
+        {
+            if (currentPage == 3 && previouspg_0 != 3)
+            {
+                NarrativeController.controller.ActiivateMarkers(true, 1f);
+            }
+        }
+
+        else if (NarrativeController.controller.narrativeID == 4)
+        {
+            if (currentPage == 2 && previouspg_0 != 2)
+            {
+                
+                NarrativeController.controller.ActiivateMarkers(true, 0.2f);
+            }
+        }
+        else if (NarrativeController.controller.narrativeID == 5)
+        {
+            if (currentPage == 2 && previouspg_0 != 2)
+            {
+                NarrativeController.controller.ActiivateMarkers(true, 0.2f);
+            }
+        }
+        else
+        {
+            if (previouspg_0 != 1 && previouspg_0 != 2)
+            {
+                NarrativeController.controller.ActiivateMarkers(false, 1f);
+            }
+
+        }
+
+
         startPos = m_ScrollRect.verticalNormalizedPosition;
         var x = Input.GetAxis("Mouse ScrollWheel");
 
@@ -68,7 +101,6 @@ public class ScrollController : MonoBehaviour
         if (x < 0)
         {
             // StartCoroutine(SetTOZeroAfterTime());
-
             input = 2;
             CameraMoveScrollController.forwardScroll = true;
         }

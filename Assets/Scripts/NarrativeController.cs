@@ -37,7 +37,10 @@ public class NarrativeController : MonoBehaviour
 
     void Start()
     {
-
+        foreach (NarrativeItem marker in narrativeItems)
+        {
+            marker.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -48,7 +51,7 @@ public class NarrativeController : MonoBehaviour
 
     public void SetNextNarrative()
     {
-        if (narrativeID < narrativeItems.Length-1)
+        if (narrativeID < narrativeItems.Length - 1)
         {
             foreach (GameObject go in scrollPanels)
             {
@@ -64,7 +67,7 @@ public class NarrativeController : MonoBehaviour
     {
         GetCurrentNarrativeData();
         SetCurrentNarrativeScrollPanel();
-      //  SetCurrentNarrativePhoto();
+        //  SetCurrentNarrativePhoto();
         currentNarrative.SetAnimationTargets();
     }
 
@@ -75,14 +78,31 @@ public class NarrativeController : MonoBehaviour
 
     private void SetCurrentNarrativeScrollPanel()
     {
-       
+
         narrativeItems[narrativeID].scrollPanel.SetActive(true);
         narrativeItems[narrativeID].SetScrollRects();
     }
 
     public void SetCurrentNarrativePhoto()
     {
-       currentNarrativePhoto =  narrativeItems[narrativeID].photo;
+        currentNarrativePhoto = narrativeItems[narrativeID].photo;
     }
 
+    public void ActiivateMarkers(bool state, float delay)
+    {
+        StartCoroutine(ActivateMarkersRoutiine(state, delay));
+    }
+
+    public IEnumerator ActivateMarkersRoutiine(bool state, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        foreach (NarrativeItem marker in narrativeItems)
+        {
+            yield return new WaitForSeconds(0.1f);
+            marker.gameObject.SetActive(state);
+        }
+
+    }
 }
+
