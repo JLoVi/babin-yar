@@ -8,7 +8,7 @@ public class NarrativeDataObject : MonoBehaviour
     public GameObject target1;
     public GameObject target2;
 
-    public GameObject hoverIcon;
+    public GameObject[] hoverIcon;
 
     public Camera mainCam;
 
@@ -18,6 +18,10 @@ public class NarrativeDataObject : MonoBehaviour
     private void Start()
     {
         //  SetAnimationTargets();
+        foreach (GameObject icon in hoverIcon)
+        {
+            icon.SetActive(false);
+        }
     }
 
 
@@ -26,7 +30,7 @@ public class NarrativeDataObject : MonoBehaviour
         Vector3 screenPos = mainCam.WorldToScreenPoint(endposition.transform.position);
         if (offset)
         {
-            this.transform.position = new Vector3(screenPos.x-20, screenPos.y + 40, this.transform.position.z);
+            this.transform.position = new Vector3(screenPos.x - 20, screenPos.y + 40, this.transform.position.z);
         }
         else
         {
@@ -36,7 +40,12 @@ public class NarrativeDataObject : MonoBehaviour
 
     public void DisplayTargetDescription(bool state)
     {
-        hoverIcon.SetActive(state);
+
+        foreach (GameObject icon in hoverIcon)
+        {
+            icon.SetActive(state);
+        }
+
     }
 
     public void SetAnimationTargets()

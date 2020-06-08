@@ -183,18 +183,18 @@ public class ScrollController : MonoBehaviour
 
         IEnumerator co;
 
-        co = ScrollToNormalisedPosition(scrollTime, startPos, targetPos, false);
+        co = ScrollToNormalisedPosition(scrollTime, startPos, targetPos, true);
 
         StopCoroutine(co); // stop it.
 
         if (currentPage == 3)
         {
             targetPos = canvasEndCorrectedPos;
-            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos, false));
+            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos, true));
         }
         else
         {
-            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos, false));
+            StartCoroutine(ScrollToNormalisedPosition(scrollTime, startPos, targetPos, true));
         }
         //  }
         //   else { return; }

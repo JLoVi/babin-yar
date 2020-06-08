@@ -46,7 +46,7 @@ public class CameraMoveScrollController : MonoBehaviour
     {
         normalizedT = 1 - scrollcanvas.verticalNormalizedPosition;
 
-        if (normalizedT < 0.6 && !scrollToEnd)
+        if (normalizedT < 0.2 && !scrollToEnd)
         {
             transform.position = Vector3.SmoothDamp(transform.position, target2.position, ref refPos, movementTime);
             //Interpolate Rotation
@@ -118,7 +118,6 @@ public class CameraMoveScrollController : MonoBehaviour
             }
             if (!forwardScroll)
             {
-                Debug.Log("RR");
                 transform.position = Vector3.Lerp(transform.position, target2.position, normalizedT / 100);
             }
         }
