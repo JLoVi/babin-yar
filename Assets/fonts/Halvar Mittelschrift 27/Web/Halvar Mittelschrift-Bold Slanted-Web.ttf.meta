@@ -1,0 +1,46 @@
+fileFormatVersion: 2
+guid: 4f4b390b297ba4a57b131bc8618dd795
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Halvar Mittelschrift CY
+  fontNames:
+  - Halvar Mittelschrift CY
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e36b960083ac94120a18e66f0a298471, type: 3}
+  - {fileID: 12800000, guid: a43a09327f30d47438688b62c8024ab1, type: 3}
+  - {fileID: 12800000, guid: adcab4d3a74774e9893026f8c7343d8a, type: 3}
+  - {fileID: 12800000, guid: 4a8316349e43e4686b5b5d4ed59c415d, type: 3}
+  - {fileID: 12800000, guid: 8b57a244186bb4683970d6016f44e79b, type: 3}
+  - {fileID: 12800000, guid: 94169ed459a7845ac9d485acca1055f0, type: 3}
+  - {fileID: 12800000, guid: 965de0b6d1f2040f797a211568694f3d, type: 3}
+  - {fileID: 12800000, guid: 34d861672ded24c74a832ac7473f8a92, type: 3}
+  - {fileID: 12800000, guid: 6e4abc6711c7546808197445a4a9f976, type: 3}
+  - {fileID: 12800000, guid: 82f634f73fae44c5c8c3755f0100833a, type: 3}
+  - {fileID: 12800000, guid: c60da8287eb77477985d34cfb10f107e, type: 3}
+  - {fileID: 12800000, guid: a2ab3e68d2778462688d1ce0157621c0, type: 3}
+  - {fileID: 12800000, guid: 577299c9e2a874cca99367ff0f3fd72d, type: 3}
+  - {fileID: 12800000, guid: 48e64cc9164014922a19acf1531300eb, type: 3}
+  - {fileID: 12800000, guid: 612ec9d9210ef4c7b9741bc2820716b5, type: 3}
+  - {fileID: 12800000, guid: eb3cc95a31f6c4a319dec0681dbab0ef, type: 3}
+  - {fileID: 12800000, guid: b56de19b5052b4b0fa3bc9e1bb47efe0, type: 3}
+  - {fileID: 12800000, guid: 43e5b2cb3fe564ee1805f0c187f79ed0, type: 3}
+  - {fileID: 12800000, guid: 77a0c8cb54e8e4dfdb2ca73989d452b1, type: 3}
+  - {fileID: 12800000, guid: e7ae4d0cd957442ccaf911d921261358, type: 3}
+  - {fileID: 12800000, guid: 2756424cc87e04e7e86ddd573666b066, type: 3}
+  - {fileID: 12800000, guid: 3b4ebc4c647084e77aaa953e5c9198e5, type: 3}
+  - {fileID: 12800000, guid: cbf7a4ce4a09d468bb8be175299ef4a6, type: 3}
+  - {fileID: 12800000, guid: 8d1fe2eebc3ec40b0bb856115e847317, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

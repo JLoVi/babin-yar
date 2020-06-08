@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class ShowPhoto : MonoBehaviour
 {
-    public GameEvent UpdateNarrativeEvent;
-    public Image photo;
+    //  public Image photo;
     public Color filledColor;
     public Color clearColor;
 
@@ -15,40 +14,49 @@ public class ShowPhoto : MonoBehaviour
     public bool canFadeIn;
     public bool canFadeOut;
 
-   
+
 
     public void Start()
     {
-        filledColor = new Color(photo.color.r, photo.color.g, photo.color.b, 1);
+
+        filledColor = new Color(NarrativeController.controller.currentNarrativePhoto.color.r,
+             NarrativeController.controller.currentNarrativePhoto.color.g,
+             NarrativeController.controller.currentNarrativePhoto.color.b, 0.8f);
         clearColor = Color.clear;
+
         canFadeIn = true;
         canFadeOut = false;
     }
 
     public void FadeInPhoto()
     {
-
         if (canFadeIn)
         {
+            NarrativeController.controller.SetCurrentNarrativePhoto();
 
-            StartCoroutine(FadeInRoutine(clearColor, filledColor));
+            StartCoroutine(FadeInRoutine(clearColor, filledColor, NarrativeController.controller.currentNarrativePhoto));
         }
     }
 
     public void FadeOutPhoto()
     {
+
         if (canFadeOut)
         {
 
-            if (photo.color != clearColor)
+
+            NarrativeController.controller.SetCurrentNarrativePhoto();
+
+            StopAllCoroutines();
+            foreach (Image photo in NarrativeController.controller.photos)
             {
-                StopAllCoroutines();
-                StartCoroutine(FadeOutRoutine(photo.color, clearColor));
+                StartCoroutine(FadeOutRoutine(photo.color, clearColor, photo));
             }
+
         }
     }
 
-    private IEnumerator FadeInRoutine(Color startColor, Color endColor)
+    private IEnumerator FadeInRoutine(Color startColor, Color endColor, Image photo)
     {
         canFadeIn = false;
         canFadeOut = true;
@@ -72,25 +80,32 @@ public class ShowPhoto : MonoBehaviour
 
     }
 
-    private IEnumerator FadeOutRoutine(Color startColor, Color endColor)
+    private IEnumerator FadeOutRoutine(Color startColor, Color endColor, Image photo)
     {
         canFadeOut = false;
         canFadeIn = true;
 
-        if (NarrativeController.controller.setNextNarrative)
-        {
-            UpdateNarrativeEvent.Raise();
-        }
+
         for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
         {
             photo.color = Color.Lerp(startColor, endColor, Mathf.Min(1, t / fadeOutTime));
 
             yield return null;
         }
-        
+
+
 
 
     }
 
+    public IEnumerator FadeOutPhotoSimple(Color startColor, Color endColor, Image photo)
+    {
+        for (float t = 0.01f; t < 0.3; t += Time.deltaTime)
+        {
+            photo.color = Color.Lerp(startColor, endColor, Mathf.Min(1, t / fadeOutTime));
+
+            yield return null;
+        }
+    }
 }
 

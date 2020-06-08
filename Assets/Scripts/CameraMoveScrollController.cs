@@ -10,71 +10,65 @@ public class CameraMoveScrollController : MonoBehaviour
 
     public float normalizedT;
     public static ScrollRect scrollcanvas;
-    
+    //  public static Image photoToShow;
+
     public static Transform target1;
     public static Transform target2;
-   // public Transform startCam;
+    // public Transform startCam;
     public static Transform endCam;
 
     public static bool forwardScroll;
-    
+
     public float movementTime = 1;
     public float rotationSpeed = 0.1f;
 
     Vector3 refPos;
     Vector3 refRot;
 
+    public bool canMoveCam;
+    public bool scrollToEnd;
+
+    public static CameraMoveScrollController controller;
+
+    void Awake()
+    {
+        controller = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
-
+        canMoveCam = true;
+        scrollToEnd = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (normalizedT < 0.1)
+        normalizedT = 1 - scrollcanvas.verticalNormalizedPosition;
+
+        if (normalizedT < 0.2 && !scrollToEnd)
         {
             transform.position = Vector3.SmoothDamp(transform.position, target2.position, ref refPos, movementTime);
             //Interpolate Rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
 
         }
-       
 
-        if (normalizedT > 0.9)
+
+        if (normalizedT > 0.6)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, endCam.rotation, rotationSpeed * Time.deltaTime);
 
-            transform.position = Vector3.SmoothDamp(transform.position, endCam.position, ref refPos, movementTime);
-
-          
-
-            if (GetComponent<CameraPanController>() != null)
-            {
-                GetComponent<CameraPanController>().enabled = false;
-            }
-
-            if (GetComponent<CameraOrbitController>() != null)
-            {
-                GetComponent<CameraOrbitController>().enabled = false;
-            }
-
-            if (normalizedT > 0.95)
-            {
-                photoFader.FadeInPhoto();
-            }
-
+            MoveToEndCamera();
         }
 
-        
+
 
         else
         {
             NarrativeController.controller.setNextNarrative = false;
             photoFader.FadeOutPhoto();
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
+           // transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
             if (GetComponent<CameraPanController>() != null)
             {
                 GetComponent<CameraPanController>().enabled = true;
@@ -87,17 +81,49 @@ public class CameraMoveScrollController : MonoBehaviour
         }
     }
 
+    public void MoveToEndCamera()
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, endCam.rotation, rotationSpeed * Time.deltaTime);
+
+        transform.position = Vector3.SmoothDamp(transform.position, endCam.position, ref refPos, movementTime);
+
+
+
+        if (GetComponent<CameraPanController>() != null)
+        {
+            GetComponent<CameraPanController>().enabled = false;
+        }
+
+        if (GetComponent<CameraOrbitController>() != null)
+        {
+            GetComponent<CameraOrbitController>().enabled = false;
+        }
+
+        if (normalizedT > 0.65)
+        {
+            NarrativeController.controller.SetCurrentNarrativePhoto();
+            photoFader.FadeInPhoto();
+        }
+    }
+
     public void SetMoveValues()
     {
-        normalizedT = 1 - scrollcanvas.verticalNormalizedPosition;
-//        Debug.Log(forwardScroll);
-        if (forwardScroll)
+        if (canMoveCam)
         {
-            transform.position = Vector3.Lerp(transform.position, target1.position, normalizedT / 100);
+            normalizedT = 1 - scrollcanvas.verticalNormalizedPosition;
+
+            if (forwardScroll)
+            {
+                transform.position = Vector3.Lerp(transform.position, target1.position, normalizedT / 100);
+            }
+            if (!forwardScroll)
+            {
+                transform.position = Vector3.Lerp(transform.position, target2.position, normalizedT / 100);
+            }
         }
-        if (!forwardScroll)
+        else
         {
-            transform.position = Vector3.Lerp(transform.position, target2.position, normalizedT / 100);
+            return;
         }
 
     }

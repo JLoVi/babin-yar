@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NarrativeController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class NarrativeController : MonoBehaviour
     public NarrativeItem[] narrativeItems;
 
     public NarrativeDataObject currentNarrative;
+
+    public Image[] photos;
+    public Image currentNarrativePhoto;
 
     public static NarrativeController controller;
 
@@ -23,8 +27,14 @@ public class NarrativeController : MonoBehaviour
 
         narrativeID = 0;
 
-        SwitchNarrative(narrativeID);
+        foreach (GameObject go in scrollPanels)
+        {
+            go.SetActive(false);
+        }
+        SetCurrentNarrativePhoto();
+        SwitchNarrative();
     }
+
     void Start()
     {
 
@@ -40,16 +50,21 @@ public class NarrativeController : MonoBehaviour
     {
         if (narrativeID < narrativeItems.Length-1)
         {
+            foreach (GameObject go in scrollPanels)
+            {
+                go.SetActive(false);
+            }
             setNextNarrative = false;
             narrativeID++;
-            SwitchNarrative(narrativeID);
+            SwitchNarrative();
         }
     }
 
-    private void SwitchNarrative(int id)
+    private void SwitchNarrative()
     {
         GetCurrentNarrativeData();
         SetCurrentNarrativeScrollPanel();
+      //  SetCurrentNarrativePhoto();
         currentNarrative.SetAnimationTargets();
     }
 
@@ -60,12 +75,14 @@ public class NarrativeController : MonoBehaviour
 
     private void SetCurrentNarrativeScrollPanel()
     {
-        foreach (GameObject go in scrollPanels)
-        {
-            go.SetActive(false);
-        }
+       
         narrativeItems[narrativeID].scrollPanel.SetActive(true);
         narrativeItems[narrativeID].SetScrollRects();
+    }
+
+    public void SetCurrentNarrativePhoto()
+    {
+       currentNarrativePhoto =  narrativeItems[narrativeID].photo;
     }
 
 }
