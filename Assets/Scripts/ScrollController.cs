@@ -356,7 +356,7 @@ public class ScrollController : MonoBehaviour
     public void ScrollToMiddle()
     {
        
-        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.65f, false));
+        StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.63f, false));
     }
 
     public void ScrollToEnd()
