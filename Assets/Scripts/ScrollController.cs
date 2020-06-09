@@ -14,14 +14,14 @@ public class ScrollController : MonoBehaviour
     public float transitionStep;
     public float canvasEndCorrectedPos;
     private float startPos;
-    
+
     private bool canScroll;
     private int input;
 
     private int previousValue;
     public AnimationCurve MoveCurve;
 
-   // public ShowPhoto photoFader;
+    // public ShowPhoto photoFader;
 
     public GameEvent UpdateNarrativeEvent;
     public GameEvent FadeOutPhotoEvent;
@@ -38,11 +38,12 @@ public class ScrollController : MonoBehaviour
         currentPage = 0;
         previouspg_0 = 0;
 
-        if ( NarrativeController.controller.narrativeID ==4 || NarrativeController.controller.narrativeID == 5 || NarrativeController.controller.narrativeID == 6)
+        if (NarrativeController.controller.narrativeID == 4 || NarrativeController.controller.narrativeID == 5)
         {
             ScrollToMiddle();
         }
-        if (NarrativeController.controller.narrativeID == 1 || NarrativeController.controller.narrativeID == 2 || NarrativeController.controller.narrativeID == 3 || NarrativeController.controller.narrativeID == 7)
+        if (NarrativeController.controller.narrativeID == 1 || NarrativeController.controller.narrativeID == 2 || NarrativeController.controller.narrativeID == 3
+            || NarrativeController.controller.narrativeID == 6 || NarrativeController.controller.narrativeID == 7)
         {
             ScrollToEnd();
         }
@@ -67,7 +68,7 @@ public class ScrollController : MonoBehaviour
         {
             if (currentPage == 2 && previouspg_0 != 2)
             {
-                
+
                 NarrativeController.controller.ActiivateMarkers(true, 0.2f);
             }
         }
@@ -105,21 +106,21 @@ public class ScrollController : MonoBehaviour
             CameraMoveScrollController.forwardScroll = true;
         }
 
-     /*   if (x > 0.1f && x < 0.25f)
-        {
-            // StartCoroutine(SetTOZeroAfterTime());
+        /*   if (x > 0.1f && x < 0.25f)
+           {
+               // StartCoroutine(SetTOZeroAfterTime());
 
-            input = -1;
-            CameraMoveScrollController.forwardScroll = false;
-        }
+               input = -1;
+               CameraMoveScrollController.forwardScroll = false;
+           }
 
-        if (x < -0.1f && x > -0.2f)
-        {
-            //  StartCoroutine(SetTOZeroAfterTime());
+           if (x < -0.1f && x > -0.2f)
+           {
+               //  StartCoroutine(SetTOZeroAfterTime());
 
-            input = 1;
-            CameraMoveScrollController.forwardScroll = true;
-        }*/
+               input = 1;
+               CameraMoveScrollController.forwardScroll = true;
+           }*/
 
         if (x == 0)
         {
@@ -133,12 +134,12 @@ public class ScrollController : MonoBehaviour
             {
                 //photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
                 FadeOutPhotoEvent.Raise();
-               
+
                 StartCoroutine(ScrollToBlank());
                 return;
             }
             canScroll = false;
-           // Debug.Log(input);
+            // Debug.Log(input);
             ScrollRectForward();
             previousValue = input;
             StartCoroutine(SetTOZeroAfterTime());
@@ -147,7 +148,7 @@ public class ScrollController : MonoBehaviour
         {
 
             canScroll = false;
-           // Debug.Log(input);
+            // Debug.Log(input);
             ScrollRectBack();
             previousValue = input;
             StartCoroutine(SetTOZeroAfterTime());
@@ -158,14 +159,14 @@ public class ScrollController : MonoBehaviour
             if (NarrativeController.controller.setNextNarrative)
             {
                 // photoFader.FadeOutPhoto(CameraMoveScrollController.photoToShow);
-//                Debug.Log("photo fadeout");
+                //                Debug.Log("photo fadeout");
                 FadeOutPhotoEvent.Raise();
                 StartCoroutine(ScrollToBlank());
 
                 return;
             }
             canScroll = false;
-           // Debug.Log(input);
+            // Debug.Log(input);
             ScrollRectForward();
             previousValue = input;
             StartCoroutine(SetTOZeroAfterTime());
@@ -175,7 +176,7 @@ public class ScrollController : MonoBehaviour
         {
 
             canScroll = false;
-          //  Debug.Log(input);
+            //  Debug.Log(input);
             ScrollRectBack();
             previousValue = input;
             StartCoroutine(SetTOZeroAfterTime());
@@ -193,9 +194,9 @@ public class ScrollController : MonoBehaviour
 
         float scrollTime;
         float targetPos;
-         Debug.Log("forward");
+        Debug.Log("forward");
 
-        
+
 
         StartCoroutine(SetCanScroll());
 
@@ -241,7 +242,7 @@ public class ScrollController : MonoBehaviour
 
         float scrollTime;
         float targetPos;
-      //   Debug.Log("back");
+        //   Debug.Log("back");
         StartCoroutine(SetCanScroll());
         //  currentPage = currentPage -= 1;
         // GetCurrentPage();
@@ -297,7 +298,7 @@ public class ScrollController : MonoBehaviour
 
         }
         CameraMoveScrollController.controller.scrollToEnd = false;
-       
+
     }
 
     public IEnumerator SetCanScroll()
@@ -355,7 +356,7 @@ public class ScrollController : MonoBehaviour
 
     public void ScrollToMiddle()
     {
-       
+
         StartCoroutine(ScrollToNormalisedPosition(2f, 0.99f, 0.63f, false));
     }
 
@@ -373,6 +374,6 @@ public class ScrollController : MonoBehaviour
         {
             UpdateNarrativeEvent.Raise();
         }
-        
+
     }
 }
