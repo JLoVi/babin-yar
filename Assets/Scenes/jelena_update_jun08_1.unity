@@ -5254,7 +5254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ScrollRect: {fileID: 880533048}
   currentPage: 0
-  transitionStep: 0.33
+  transitionStep: 0.3
   canvasEndCorrectedPos: 0.66
   MoveCurve:
     serializedVersion: 2
@@ -7523,7 +7523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ScrollRect: {fileID: 1120304235}
   currentPage: 0
-  transitionStep: 0.33
+  transitionStep: 0.3
   canvasEndCorrectedPos: 0.66
   MoveCurve:
     serializedVersion: 2
