@@ -33,7 +33,10 @@ public class ShowPhoto : MonoBehaviour
         if (canFadeIn)
         {
             NarrativeController.controller.SetCurrentNarrativePhoto();
-
+            foreach (Image photo in NarrativeController.controller.photos)
+            {
+               
+            }
             StartCoroutine(FadeInRoutine(clearColor, filledColor, NarrativeController.controller.currentNarrativePhoto));
         }
     }
@@ -92,6 +95,7 @@ public class ShowPhoto : MonoBehaviour
 
             yield return null;
         }
+        photo.color = clearColor;
 
 
 

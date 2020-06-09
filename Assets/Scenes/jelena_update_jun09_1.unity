@@ -308,7 +308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000045776367, y: -95.4}
+  m_AnchoredPosition: {x: 0.000045776367, y: -100.3}
   m_SizeDelta: {x: 180, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &21156835
@@ -332,7 +332,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 965de0b6d1f2040f797a211568694f3d, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1772,7 +1772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000045776367, y: -141.6}
+  m_AnchoredPosition: {x: 0.000045776367, y: -120.3}
   m_SizeDelta: {x: 160, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255470943
@@ -1796,7 +1796,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 965de0b6d1f2040f797a211568694f3d, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2213,11 +2213,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "Probably impressed by what he saw, H\xF6le did not regret spending the
-    next seven frames \nof the film to take close-up shots of the things shot, scattered
-    on the ground. The pictures show \u201Cmodel\u201D, as they said then, ladies
-    shoes, ladies galoshes, boots, a thermos, a bottle, \na mug, an umbrella, gloves,
-    a prosthetic leg, children's things ...\""
+  m_Text: "Probably impressed by what he saw, H\xE4hle spent the next seven frames
+    on close-ups of the victims\u2019 belongings strewn on the ground. One frame
+    he took twice, unembarrased to go through the belongings and handbags, to retrieve
+    papers and photos of a victim, a young woman. The images show \u201Cfancy\u201D,
+    as they used to call them, ladies dress shoes, ladies overshoes, boots, a vacuum
+    flask, a bottle, a mug, an umbrella, a pair of gloves, a prosthetic leg, children's
+    things \u2026"
 --- !u!222 &363293724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2460,9 +2462,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "Stepping closer, H\xF6le took the next shot. The sun is on the left, which
-    means it is the western slope of the Yar or quarry. The slope is almost vertical,
-    with obvious traces of scree of artificial origin."
+  m_Text: "Coming closer, H\xE4hle took another photo. The sun is on the left, meaning
+    it\u2019s the western slope of the ravine or the quarry. The slope is nearly
+    vertical, with clear traces of induced caving."
 --- !u!222 &402513121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3577,7 +3579,7 @@ MonoBehaviour:
   - {fileID: 1406996377}
   cameraDirImage: {fileID: 0}
   mainCam: {fileID: 6552328485763966154}
-  offset: 0
+  offset: 1
   terrainModules:
   - {fileID: 155269322}
   - {fileID: 313503590}
@@ -3651,15 +3653,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "Stepping closer, he photographed three more SS men, in overcoats and helmets
-    with the emblem \u201CSS\u201D, with pistols in holsters on their belts, and,
-    therefore, on duty. They rummage in things, not paying attention to the photographer
-    (\u201Cyours!\u201D). In the distance, under the cliff, the figures of the Germans
-    and a certain group of people are visible. If we have traces of the victims'
-    last path (as you know, they were forced to undress before being shot), then
-    they lie there, further, behind a long row of clothes. Or to the right - outside
-    the picture?\"\nThings lay a long row leading to the ominous sandy cliffs in
-    the depths of the frame, where some figures are visible.\n\n"
+  m_Text: "Coming closer, he photographed three more SS men, in great coats and helmets
+    with the SS insignia, their pistols holstered on their belts, meaning they are
+    on duty. They rummage through the things, ignoring the photographer (\u201Che\u2019s
+    one of ours!\u201D). Out in the distance, under a cliff, the eye can make out
+    figures of Germans and a group of people. If what we see is traces of the victims\u2019
+    final path (we know they were forced to strip before being shot), then they lie
+    over there, at the end of the long row of clothes. Or to the right \u2013 outside
+    the frame?"
 --- !u!222 &593320983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4032,7 +4033,7 @@ MonoBehaviour:
   - {fileID: 2122576932}
   cameraDirImage: {fileID: 1094353315}
   mainCam: {fileID: 6552328485763966154}
-  offset: 0
+  offset: 1
   terrainModules:
   - {fileID: 155269322}
   - {fileID: 313503590}
@@ -4656,7 +4657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.5, y: -90.5}
+  m_AnchoredPosition: {x: 3.5, y: -95.3}
   m_SizeDelta: {x: 120, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761867130
@@ -4680,7 +4681,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 965de0b6d1f2040f797a211568694f3d, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -5835,13 +5836,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "Upon arrival, H\xF6le found a picture that was undoubtedly deeply impressed
-    with its drama: on the vast open space lay the things of the executed - outerwear,
-    underwear, shoes, bags, \u201Cklumaks\u201D ... And H\xF6le photographed everything
-    he saw - with an SS soldier in the front plan, in a cap, with a pistol in a holster
-    on a belt, squatting down at things and looking away from the lens.\n\nThings
-    lay a long row leading to the ominous sandy cliffs in the depths of the frame,
-    where some figures are visible.\n\n"
+  m_Text: "H\xE4hle faced a sight that must have struck him deeply: on a vast open
+    space lay the belongings of those executed \u2013 outerwear, underwear, shoes,
+    handbags, bundles \u2026 And H\xF6hle photographed everything he saw \u2013 with
+    the SS soldier in the foreground, in a side cap, with his handgun in a holster
+    dangling from the belt, squatting near the belongings and looking away from the
+    camera.\n\nThe belongings formed a long row leading to sinister-looking sandy
+    edges in the background, where some figurines can be seen.\nThings lay a long
+    row leading to the ominous sandy cliffs in the depths of the frame, where some
+    figures are visible.\n\n"
 --- !u!222 &885122976
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6319,11 +6322,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
   m_Text: "Let's look closely at the frames 6-18, that were taken directly at Babyn
-    Yar.\nH\xE4hle arrived to the site by car and walked towards the entrance to
+    Yar.\n\nH\xE4hle arrived to the site by car and walked towards the entrance to
     the former Sand Quarry, the place, where days earlier the Jews undressed and
-    waited before being sent into the neighboring ravine to be shot.\nBypassing the
-    notch he moves to the Western Spur of Babyn Yar ravine, which many historians
-    consider as a main area of \u200B\u200Bthe September 29-30 massacre.\n"
+    waited before being sent into the neighboring ravine to be shot.\n\nBypassing
+    the notch he moves to the Western Spur of Babyn Yar ravine, which many historians
+    consider as a main area of "
 --- !u!222 &931280686
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7555,7 +7558,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "\nOver 33,000 Jews were exterminated by German forces on 29-30 September
+  m_Text: "Over 33,000 Jews were exterminated by German forces on 29-30 September
     1941 at Babyn Yar ravine in Kyiv.\n\nNo pictures of the massacre itself have
     been found. Shortly after, however, Johannes H\xE4hle, a military photographer
     who served in the Wehrmacht Propaganda Troops took pictures of the aftermath.\n\nThis
@@ -8080,13 +8083,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: 'The 17th frame was taken higher along the yar. About 150 prisoners of
-    war are captured in the frame, units are working: perhaps this picture was taken
-    already at the end of work that began early in the morning. The group in the
-    foreground is noteworthy: the escort is talking with two women - a young and
-    an elderly one, judging by their clothes, peasant women, or residents of the
-    suburbs. One of them, barefoot, holds a baby in her arms. It can be assumed that
-    they are looking for one of their relatives.'
+  m_Text: "Frame 17 was taken higher up the ravine. Of the about 150 POWs in the
+    frame, only a handful are working: perhaps this picture was taken after the work
+    that had started early in the morning was done. Of note is the group in the foreground:
+    an SS convoy guard talking to two women \u2013 one young, the other elderly,
+    peasants or residents of the suburbs, judging by their clothes. One of them,
+    barefoot, holds a small child in her arms. It's conceivable that they are looking
+    for a relative of theirs."
 --- !u!222 &1121238345
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8780,7 +8783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1246998564
 Transform:
   m_ObjectHideFlags: 0
@@ -9166,10 +9169,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "The next frame is made a little lower. Some of the prisoners of war are
-    looking into the lens, on the helmet \nof the guard, who is standing with \nhis
-    back, the emblem of the SS troops \nis visible. In the field of view of more
-    than 100 prisoners."
+  m_Text: ' The next photo was taken from a lower elevation. A few of the POWs look
+    into the camera; the SS insignia are conspicuous on the helmet of the convoy
+    guard standing in the back. There are more than 100 POWs in sight.'
 --- !u!222 &1282595186
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9316,7 +9318,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000045776367, y: -94.6}
+  m_AnchoredPosition: {x: 0.000045776367, y: -100.2}
   m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1297930258
@@ -9340,7 +9342,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 965de0b6d1f2040f797a211568694f3d, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9986,7 +9988,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 78fdb70d280004e9d96a34e12ad05f0f, type: 3}
-    m_FontSize: 25
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -11485,7 +11487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.5, y: -93.9}
+  m_AnchoredPosition: {x: 3.5, y: -96.7}
   m_SizeDelta: {x: 120, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634121180
@@ -11509,7 +11511,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 965de0b6d1f2040f797a211568694f3d, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -12282,16 +12284,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: 'To take the next three pictures of the places, the photographer climbed
-    to the top edge of the yar, where the following picture opened: hundreds of prisoners
-    of war in their greatcoats, armed with shovels, stood on both sides of the bottom
-    of the yar, on its slopes and on the very bottom, on freshly sprinkled earth
-    - clearly occupied by backfilling and leveling the bottom. Half-sprinkled trees
-    and bushes at the bottom indicate that the slopes of the Yar were blown up. There
-    are about 115 prisoners in the frame. On the edges of the yar are SS guards,
-    with rifles on their shoulders, with helmets on their belts. One of them is visible
-    in the foreground, the other is at the bottom, among the prisoners, legs wide
-    apart and akimbo, they are also on the left, above.'
+  m_Text: "To take the next three location shots, the photographer climbed up to
+    the edge of the ravine, where the following scene came into view: hundreds of
+    POWs in great coats, armed with shovels, stood along both sides of the bottom
+    of the ravine, on its slopes and down below, on freshly filled ground \u2013
+    clearly busy covering and grading the bottom. Half-buried trees and bushes at
+    the bottom indicate that the slopes of the ravine had been blasted. There are
+    about 115 POWs in the shot. Along the edges of the ravine stand SS guards, rifles
+    on their shoulders, helmets on their belts. One of them is in the foreground,
+    the other down below, among the prisoners, legs spread widely and arms akimbo;
+    other SS guards stand to the left, at the top."
 --- !u!222 &1721118293
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12334,7 +12336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000045776367, y: -94}
+  m_AnchoredPosition: {x: 0.000045776367, y: -96.5}
   m_SizeDelta: {x: 120, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1741077575
@@ -12358,7 +12360,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 965de0b6d1f2040f797a211568694f3d, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -12847,7 +12849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1844245683
 Transform:
   m_ObjectHideFlags: 0
@@ -13716,7 +13718,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -960, y: -540}
-  m_SizeDelta: {x: 10, y: 100}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1935845306
 MonoBehaviour:
@@ -14059,10 +14061,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "H\xE4hle, most likely, took these photos on 1 October 1941.\n\nThe photos
+  m_Text: "H\xE4hle, most likely, took these photos on 1 October 1941. The photos
     are from a single roll of 36 mm AGFA COLOR film. All frames are numbered. The
-    frames 1, 2, and 29 are missing.\nThings lay a long row leading to the ominous
-    sandy cliffs in the depths of the frame, where some figures are visible.\n"
+    frames 1, 2, and 29 are missing."
 --- !u!222 &1958891953
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14493,7 +14494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000045776367, y: -92.3}
+  m_AnchoredPosition: {x: 0.000045776367, y: -96}
   m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2044542229
@@ -14517,7 +14518,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 965de0b6d1f2040f797a211568694f3d, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -16068,10 +16069,10 @@ RectTransform:
   m_Father: {fileID: 1868507702}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 540}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4688523679336550072
 MonoBehaviour:
@@ -16108,7 +16109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4688523679358652553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16233,10 +16234,10 @@ RectTransform:
   m_Father: {fileID: 1868507702}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 540}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4688523680687032635
 GameObject:
@@ -16296,7 +16297,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4688523680726483741
 GameObject:
@@ -16452,7 +16453,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 100}
+  m_SizeDelta: {x: 30, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4688523681088152650
 MonoBehaviour:

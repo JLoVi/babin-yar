@@ -32,7 +32,7 @@ public class NarrativeDataObject : MonoBehaviour
         Vector3 screenPos = mainCam.WorldToScreenPoint(endposition.transform.position);
         if (offset)
         {
-            this.transform.position = new Vector3(screenPos.x - 20, screenPos.y + 40, this.transform.position.z);
+            this.transform.position = new Vector3(screenPos.x - 30, screenPos.y + 50, this.transform.position.z);
         }
         else
         {
