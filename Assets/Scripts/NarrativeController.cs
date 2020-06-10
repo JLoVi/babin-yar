@@ -21,6 +21,9 @@ public class NarrativeController : MonoBehaviour
 
     public bool setNextNarrative;
 
+    public GameObject[] terrainModules;
+
+
     void Awake()
     {
         controller = this;
@@ -41,12 +44,21 @@ public class NarrativeController : MonoBehaviour
         {
             marker.gameObject.SetActive(false);
         }
+        SetTerrainModules(false);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void SetTerrainModules(bool state)
+    {
+        foreach (GameObject module in terrainModules)
+        {
+            module.SetActive(state);
+        }
     }
 
     public void SetNextNarrative()

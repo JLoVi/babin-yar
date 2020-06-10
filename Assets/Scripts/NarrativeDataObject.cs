@@ -57,7 +57,7 @@ public class NarrativeDataObject : MonoBehaviour
         {
             foreach (GameObject go in terrainModules)
             {
-                go.SetActive(!state);
+                go.SetActive(state);
             }
         }
 
