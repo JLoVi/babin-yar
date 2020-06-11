@@ -9,11 +9,13 @@ public class NarrativeDataObject : MonoBehaviour
     public GameObject target2;
 
     public GameObject[] hoverIcon;
+    public GameObject cameraDirImage;
 
     public Camera mainCam;
 
     public bool offset;
 
+    public GameObject[] terrainModules;
 
     private void Start()
     {
@@ -30,7 +32,7 @@ public class NarrativeDataObject : MonoBehaviour
         Vector3 screenPos = mainCam.WorldToScreenPoint(endposition.transform.position);
         if (offset)
         {
-            this.transform.position = new Vector3(screenPos.x - 20, screenPos.y + 40, this.transform.position.z);
+            this.transform.position = new Vector3(screenPos.x - 30, screenPos.y + 50, this.transform.position.z);
         }
         else
         {
@@ -44,9 +46,24 @@ public class NarrativeDataObject : MonoBehaviour
         foreach (GameObject icon in hoverIcon)
         {
             icon.SetActive(state);
+
+        }
+        if (cameraDirImage != null)
+        {
+            cameraDirImage.SetActive(!state);
+        }
+
+        if (terrainModules != null)
+        {
+            foreach (GameObject go in terrainModules)
+            {
+                go.SetActive(state);
+            }
         }
 
     }
+
+
 
     public void SetAnimationTargets()
     {
@@ -54,5 +71,6 @@ public class NarrativeDataObject : MonoBehaviour
         CameraMoveScrollController.target2 = target2.transform;
         CameraMoveScrollController.endCam = endposition.transform;
     }
+
 
 }

@@ -7,6 +7,8 @@ public class CameraMoveScrollController : MonoBehaviour
 {
     //  public GameEvent onUpdateNarrative;
     public ShowPhoto photoFader;
+    private Camera mainCam;
+    private bool adjustingCam;
 
     public float normalizedT;
     public static ScrollRect scrollcanvas;
@@ -21,9 +23,11 @@ public class CameraMoveScrollController : MonoBehaviour
 
     public float movementTime = 1;
     public float rotationSpeed = 0.1f;
+    public float camLerpSpeed = 1f;
+
 
     Vector3 refPos;
-    Vector3 refRot;
+    Vector2 refCam;
 
     public bool canMoveCam;
     public bool scrollToEnd;
@@ -33,12 +37,15 @@ public class CameraMoveScrollController : MonoBehaviour
     void Awake()
     {
         controller = this;
+        mainCam = this.GetComponent<Camera>();
+
     }
     // Start is called before the first frame update
     void Start()
     {
         canMoveCam = true;
         scrollToEnd = false;
+        adjustingCam = false;
     }
 
     // Update is called once per frame
@@ -59,6 +66,11 @@ public class CameraMoveScrollController : MonoBehaviour
         {
 
             MoveToEndCamera();
+            if (endCam.GetComponent<Camera>() != null) { 
+                mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, endCam.GetComponent<Camera>().fieldOfView, rotationSpeed * Time.deltaTime);
+               // mainCam.lensShift = Vector2.Lerp(mainCam.fieldOfView, endCam.GetComponent<Camera>().fieldOfView.x, rotationSpeed * Time.deltaTime);
+            }
+          
         }
 
 
@@ -68,7 +80,7 @@ public class CameraMoveScrollController : MonoBehaviour
             NarrativeController.controller.setNextNarrative = false;
             photoFader.FadeOutPhoto();
 
-           // transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
+            // transform.rotation = Quaternion.Slerp(transform.rotation, target2.rotation, rotationSpeed * Time.deltaTime);
             if (GetComponent<CameraPanController>() != null)
             {
                 GetComponent<CameraPanController>().enabled = true;
@@ -103,6 +115,24 @@ public class CameraMoveScrollController : MonoBehaviour
         {
             NarrativeController.controller.SetCurrentNarrativePhoto();
             photoFader.FadeInPhoto();
+        }
+    }
+
+    public IEnumerator AdjustPhysicalCamera()
+    {
+        adjustingCam = true;
+        if (endCam.GetComponent<Camera>() != null)
+        {
+            for (float t = 0.01f; t < camLerpSpeed; t += Time.deltaTime)
+            {
+
+                mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, endCam.GetComponent<Camera>().fieldOfView, Mathf.Min(1, t / camLerpSpeed));
+                mainCam.lensShift = Vector2.Lerp(mainCam.lensShift, endCam.GetComponent<Camera>().lensShift, Mathf.Min(1, t / camLerpSpeed));
+
+                yield return null;
+            }
+            adjustingCam = false;
+
         }
     }
 
