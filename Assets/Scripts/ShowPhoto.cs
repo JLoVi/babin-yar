@@ -33,11 +33,17 @@ public class ShowPhoto : MonoBehaviour
         if (canFadeIn)
         {
             NarrativeController.controller.SetCurrentNarrativePhoto();
-            foreach (Image photo in NarrativeController.controller.photos)
+
+            if (NarrativeController.controller.narrativeID <= NarrativeController.controller.narrativeItems.Length - 1)
             {
-               
+                if (NarrativeController.controller.narrativeID == NarrativeController.controller.narrativeItems.Length - 1 && NarrativeController.controller.setNextNarrative)
+                {
+                    NarrativeController.controller.restartButton.SetActive(true);
+                    return;
+                }
+                StartCoroutine(FadeInRoutine(clearColor, filledColor, NarrativeController.controller.currentNarrativePhoto));
             }
-            StartCoroutine(FadeInRoutine(clearColor, filledColor, NarrativeController.controller.currentNarrativePhoto));
+
         }
     }
 
@@ -65,7 +71,7 @@ public class ShowPhoto : MonoBehaviour
         canFadeOut = true;
 
         yield return new WaitForSeconds(2f);
-        Debug.Log("currentnarrative" + NarrativeController.controller.narrativeID);
+        //        Debug.Log("currentnarrative" + NarrativeController.controller.narrativeID);
         if (NarrativeController.controller.narrativeID != 0)
         {
             for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
@@ -88,7 +94,6 @@ public class ShowPhoto : MonoBehaviour
         canFadeOut = false;
         canFadeIn = true;
 
-
         for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
         {
             photo.color = Color.Lerp(startColor, endColor, Mathf.Min(1, t / fadeOutTime));
@@ -96,9 +101,10 @@ public class ShowPhoto : MonoBehaviour
             yield return null;
         }
         photo.color = clearColor;
-
-
-
+        if (NarrativeController.controller.narrativeID == NarrativeController.controller.narrativeItems.Length - 1 && NarrativeController.controller.setNextNarrative)
+        {
+            NarrativeController.controller.restartButton.SetActive(true);
+        }
 
     }
 

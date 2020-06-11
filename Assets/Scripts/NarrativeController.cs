@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NarrativeController : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class NarrativeController : MonoBehaviour
 
     public GameObject[] terrainModules;
 
+    public GameObject restartButton;
+
 
     void Awake()
     {
@@ -36,6 +39,7 @@ public class NarrativeController : MonoBehaviour
         }
         SetCurrentNarrativePhoto();
         SwitchNarrative();
+
     }
 
     void Start()
@@ -45,6 +49,7 @@ public class NarrativeController : MonoBehaviour
             marker.gameObject.SetActive(false);
         }
         SetTerrainModules(false);
+        restartButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -115,6 +120,12 @@ public class NarrativeController : MonoBehaviour
             marker.gameObject.SetActive(state);
         }
 
+    }
+
+    public void RestartGame()
+    {
+       
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
 
