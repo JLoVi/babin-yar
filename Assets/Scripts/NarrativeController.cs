@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NarrativeController : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class NarrativeController : MonoBehaviour
 
     public bool setNextNarrative;
 
+    public GameObject[] terrainModules;
+
+    public GameObject restartButton;
+
+
     void Awake()
     {
         controller = this;
@@ -33,11 +39,17 @@ public class NarrativeController : MonoBehaviour
         }
         SetCurrentNarrativePhoto();
         SwitchNarrative();
+
     }
 
     void Start()
     {
-
+        foreach (NarrativeItem marker in narrativeItems)
+        {
+            marker.gameObject.SetActive(false);
+        }
+        SetTerrainModules(false);
+        restartButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,9 +58,17 @@ public class NarrativeController : MonoBehaviour
 
     }
 
+    public void SetTerrainModules(bool state)
+    {
+        foreach (GameObject module in terrainModules)
+        {
+            module.SetActive(state);
+        }
+    }
+
     public void SetNextNarrative()
     {
-        if (narrativeID < narrativeItems.Length-1)
+        if (narrativeID < narrativeItems.Length - 1)
         {
             foreach (GameObject go in scrollPanels)
             {
@@ -64,7 +84,7 @@ public class NarrativeController : MonoBehaviour
     {
         GetCurrentNarrativeData();
         SetCurrentNarrativeScrollPanel();
-      //  SetCurrentNarrativePhoto();
+        //  SetCurrentNarrativePhoto();
         currentNarrative.SetAnimationTargets();
     }
 
@@ -75,14 +95,37 @@ public class NarrativeController : MonoBehaviour
 
     private void SetCurrentNarrativeScrollPanel()
     {
-       
+
         narrativeItems[narrativeID].scrollPanel.SetActive(true);
         narrativeItems[narrativeID].SetScrollRects();
     }
 
     public void SetCurrentNarrativePhoto()
     {
-       currentNarrativePhoto =  narrativeItems[narrativeID].photo;
+        currentNarrativePhoto = narrativeItems[narrativeID].photo;
     }
 
+    public void ActiivateMarkers(bool state, float delay)
+    {
+        StartCoroutine(ActivateMarkersRoutiine(state, delay));
+    }
+
+    public IEnumerator ActivateMarkersRoutiine(bool state, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        foreach (NarrativeItem marker in narrativeItems)
+        {
+            yield return new WaitForSeconds(0.1f);
+            marker.gameObject.SetActive(state);
+        }
+
+    }
+
+    public void RestartGame()
+    {
+       
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
 }
+
