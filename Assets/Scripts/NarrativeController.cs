@@ -127,5 +127,16 @@ public class NarrativeController : MonoBehaviour
        
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
+
+    public void OpenLinkOne()
+    {
+        Application.ExternalEval("window.open(\"http://history.kby.kiev.ua/#/publication/article_7.Kiyiv_i_Babin_Yar_na_nimetskiy_fotoplivtsi_oseni_1941_roku_(ros.).html\",\"_blank\")");
+    }
+
+    public void OpenLinkTwo()
+    {
+        Application.ExternalEval("window.open(\"http://history.kby.kiev.ua/publication/doc_35.html\",\"_blank\")");
+    }
+
 }
 

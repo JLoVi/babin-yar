@@ -38,7 +38,7 @@ public class ScrollController : MonoBehaviour
         currentPage = 0;
         previouspg_0 = 0;
 
-        if (NarrativeController.controller.narrativeID == 4 || NarrativeController.controller.narrativeID == 5)
+        if (NarrativeController.controller.narrativeID == 4 || NarrativeController.controller.narrativeID == 5 )
         {
             ScrollToMiddle();
             NarrativeController.controller.SetTerrainModules(true);
